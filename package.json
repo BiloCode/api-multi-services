@@ -7,7 +7,8 @@
     "start": "node .",
     "dev": "nodemon",
     "build": "tsc",
-    "seed": "ts-node ./src/database/seed.ts"
+    "seed": "ts-node ./src/database/seed.ts",
+    "seed-build" : "node ./build/database/seed.js"
   },
   "keywords": [],
   "author": "",
