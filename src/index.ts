@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import compression from 'compression';
 
@@ -22,6 +22,10 @@ app.use(express.urlencoded({ extended : true }));
 //Routes
 app.use('/app',routerApp);
 app.use('/panel', routerPanel);
+
+app.get('/', (req : Request,res : Response) => {
+  res.status(200).send('Welcome');
+})
 
 //Port
 app.listen(port, async () => {
