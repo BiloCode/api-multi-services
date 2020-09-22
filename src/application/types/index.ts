@@ -1,0 +1,1 @@
+export type WorkDetailState = 'waiting-confirmation' | 'pendient' | 'completed';
