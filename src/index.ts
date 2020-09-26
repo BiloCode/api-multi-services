@@ -1,3 +1,7 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
+//Imports
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import compression from 'compression';
@@ -12,7 +16,7 @@ import './database/associations';
 
 //Configuration
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(compression());
 app.use(cors());
@@ -31,4 +35,4 @@ app.get('/', (req : Request,res : Response) => {
 app.listen(port, async () => {
   console.log('Running...');
   await sequelize.sync({ force : false });
-})
+});

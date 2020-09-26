@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import sequelize from '.';
 import './associations';
 
@@ -27,28 +30,28 @@ const deparment = [
 const province = [
   { departmentId : 1, name : 'Province Piura 1' },
   { departmentId : 1, name : 'Province Piura 2' },
-  { departmentId : 11, name : 'Rimac' },
-  { departmentId : 11, name : 'San Juan de Lurigancho' },
-  { departmentId : 21, name : 'Province Pucallpa 1' },
-  { departmentId : 21, name : 'Province Pucallpa 2' }
+  { departmentId : 2, name : 'Rimac' },
+  { departmentId : 2, name : 'San Juan de Lurigancho' },
+  { departmentId : 3, name : 'Province Pucallpa 1' },
+  { departmentId : 3, name : 'Province Pucallpa 2' }
 ];
 
 //District
 const district = [
   { provinceId : 1 , name : 'Rimac' },
   { provinceId : 1 , name : 'Pachacutet' },
-  { provinceId : 11 , name : 'District 3' },
-  { provinceId : 11 , name : 'District 4' },
-  { provinceId : 21 , name : 'District 5' },
-  { provinceId : 21 , name : 'District 6' }
+  { provinceId : 2 , name : 'District 3' },
+  { provinceId : 2 , name : 'District 4' },
+  { provinceId : 3 , name : 'District 5' },
+  { provinceId : 3 , name : 'District 6' }
 ];
 
 //User
 const user = [
   { name : 'billy' , lastname : 'paredes' , username : 'billy' , password : '123456' , districtId : 1 },
-  { name : 'imanol' , lastname : 'mayo' , username : 'imanol' , password : '123456', districtId : 11 },
+  { name : 'imanol' , lastname : 'mayo' , username : 'imanol' , password : '123456', districtId : 2 },
   { name : 'ttito' , lastname : 'chavez' , username : 'ttito' , password : '123456', districtId : 1 },
-  { name : 'cezar' , lastname : 'jefe' , username : 'cezar' , password : '123456', districtId : 21 },
+  { name : 'cezar' , lastname : 'jefe' , username : 'cezar' , password : '123456', districtId : 3 },
   { name : 'desconocido' , lastname : 'desconocido' , username : 'desconocido' , password : '123456', districtId : 1 }
 ];
 
@@ -64,12 +67,12 @@ const specialty = [
 //Worker
 const worker = [
   { userId : 1 , specialtyId : 1 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' },
-  { userId : 11 , specialtyId : 21 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' }
+  { userId : 2 , specialtyId : 3 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' }
 ];
 
 //Work Detail
 const workDetail = [
-  { userId : 21 , workerId : 1, state : 'pendient' , price : 15.56, description : 'Muy buen trabajo' }
+  { userId : 3 , workerId : 1, state : 'pendient' , price : 15.56, description : 'Muy buen trabajo' }
 ];
 
 (async () => {
