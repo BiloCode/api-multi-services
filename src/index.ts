@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import compression from 'compression';
 
@@ -12,7 +12,7 @@ import './database/associations';
 
 //Configuration
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(compression());
 app.use(cors());
@@ -22,6 +22,10 @@ app.use(express.urlencoded({ extended : true }));
 //Routes
 app.use('/app',routerApp);
 app.use('/panel', routerPanel);
+
+app.get('/', (req : Request,res : Response) => {
+  res.status(200).send('Welcome');
+})
 
 //Port
 app.listen(port, async () => {

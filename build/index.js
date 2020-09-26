@@ -58,6 +58,9 @@ app.use(express_1.default.urlencoded({ extended: true }));
 //Routes
 app.use('/app', app_1.default);
 app.use('/panel', panel_1.default);
+app.get('/', function (req, res) {
+    res.status(200).send('Welcome');
+});
 //Port
 app.listen(port, function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
