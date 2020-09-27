@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "..";
-import { UserModel } from "../../application/interfaces/models/UserModel";
+import { UserModel } from "../../../application/interfaces/models/UserModel";
 
 interface Fields extends UserModel , Model {}
 

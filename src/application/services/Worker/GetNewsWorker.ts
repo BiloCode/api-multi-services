@@ -1,8 +1,8 @@
-import District from "../../../database/models/District";
-import Province from "../../../database/models/Province";
-import Specialty from "../../../database/models/Specialty";
-import User from "../../../database/models/User";
-import Worker from "../../../database/models/Worker";
+import District from "../../../database/mysql/models/District";
+import Province from "../../../database/mysql/models/Province";
+import Specialty from "../../../database/mysql/models/Specialty";
+import User from "../../../database/mysql/models/User";
+import Worker from "../../../database/mysql/models/Worker";
 
 class GetNewsWorkers {
   public run = async () => {

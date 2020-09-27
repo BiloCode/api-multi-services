@@ -10,9 +10,10 @@ import compression from 'compression';
 import routerApp from './router/app';
 import routerPanel from './router/panel';
 
-//Database
-import sequelize from './database';
-import './database/associations';
+//Database (mongodb / mysql)
+import './database/mongodb';
+import sequelize from './database/mysql';
+import './database/mysql/associations';
 
 //Configuration
 const app = express();

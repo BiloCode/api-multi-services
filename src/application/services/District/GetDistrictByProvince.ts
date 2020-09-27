@@ -1,4 +1,4 @@
-import District from "../../../database/models/District";
+import District from "../../../database/mysql/models/District";
 
 class GetDistrictByProvince {
   public exec = async (provinceId : number) => {

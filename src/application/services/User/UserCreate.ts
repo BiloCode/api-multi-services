@@ -1,5 +1,5 @@
 import { UserModelAdd } from "../../interfaces/models/UserModel";
-import User from "../../../database/models/User";
+import User from "../../../database/mysql/models/User";
 
 class UserCreate {
   public exec = async (params : UserModelAdd) => {

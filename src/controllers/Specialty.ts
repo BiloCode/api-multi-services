@@ -1,7 +1,7 @@
 import { Request,Response } from 'express';
 
 //Models
-import Specialty from '../database/models/Specialty';
+import Specialty from '../database/mysql/models/Specialty';
 
 export const specialtyCreate = async(req:Request,res:Response)=>{
   try {

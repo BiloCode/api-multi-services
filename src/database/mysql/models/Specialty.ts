@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from "..";
-import { SpecialtyModel } from '../../application/interfaces/models/SpecialtyModel';
+import { SpecialtyModel } from '../../../application/interfaces/models/SpecialtyModel';
 
 interface Fields extends SpecialtyModel , Model {};
 

@@ -2,9 +2,9 @@ import { Request , Response, query } from 'express';
 
 //MODELS
 
-import Worker from '../database/models/Worker';
-import WorkDetail from '../database/models/WorkDetail';
-import User from '../database/models/User';
+import Worker from '../database/mysql/models/Worker';
+import WorkDetail from '../database/mysql/models/WorkDetail';
+import User from '../database/mysql/models/User';
 
 class WorkDetailController {
 
