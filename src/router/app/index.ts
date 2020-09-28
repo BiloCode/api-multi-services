@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import checkUserAppLogin from "../../controllers/Auth/app/checkUserAppLogin";
-import * as tokenVerify from "../../controllers/Auth/app/checkingTokenApp";
+import * as tokenVerify from "../../controllers/Auth/app/tokenVerify";
 import getSpecialtyAll from "../../controllers/Specialty/getSpecialtyAll";
 import getUserById from "../../controllers/User/getUserById";
 import getWorkerById from "../../controllers/Worker/app/getWorkerById";
