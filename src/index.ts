@@ -3,8 +3,10 @@ dotenv.config();
 
 //Imports
 import express from 'express';
+import http from 'http';
 import cors from 'cors';
 import compression from 'compression';
+import * as socket from './socket';
 
 //Router
 import routerApp from './router/app';
@@ -17,6 +19,7 @@ import './application/database/mysql/associations';
 
 //Configuration
 const app = express();
+const server = http.createServer(app);
 const port = process.env.PORT || 3000;
 
 app.use(compression());
@@ -29,7 +32,10 @@ app.use('/app',routerApp);
 app.use('/panel', routerPanel);
 
 //Port
-app.listen(port, async () => {
+server.listen(port, async () => {
   console.log('Running...');
   await sequelize.sync({ force : false });
 });
+
+//Socket IO
+socket.startServer(server);
