@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import AdminAuthentication from "../../../application/services/Admin/AdminAuthentication";
-import TokenCreate from "../../../application/services/Token/TokenCreate";
+import AdminAuthentication from "../../../application/repository/Admin/AdminAuthentication";
+import TokenCreate from "../../../application/repository/Token/TokenCreate";
 
 export default async function( req : Request, res : Response ) {
   try{
     const { username , password } = req.body;
-    const admin = await new AdminAuthentication().check(username,password);
+    const admin = await new AdminAuthentication().exec(username,password);
     if( admin ){
       const token = await new TokenCreate().run(admin);
       res.status(200).json({ token });

@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import TokenCreate from "../../../application/services/Token/TokenCreate";
-import UserAppAuthentication from "../../../application/services/User/UserAppAuthentication";
-import FindWorkerById from "../../../application/services/Worker/FindWorkerById";
+import TokenCreate from "../../../application/repository/Token/TokenCreate";
+import UserAppAuthentication from "../../../application/repository/User/UserAppAuthentication";
+import FindWorkerById from "../../../application/repository/Worker/FindWorkerById";
 
 export default async function (req : Request, res : Response) {
   try{
     const { username , password } = req.body;
 
-    const user = await new UserAppAuthentication().check(username,password);
+    const user = await new UserAppAuthentication().exec(username,password);
     if(user) {
       const token = new TokenCreate().run({
         id : user.id,

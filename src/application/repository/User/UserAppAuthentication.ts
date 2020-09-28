@@ -4,7 +4,7 @@ import District from "../../../database/mysql/models/District";
 import Province from "../../../database/mysql/models/Province";
 
 class UserAppAuthentication implements Authentication {
-  public check = async (username : string, password : string) => {
+  public exec = async (username : string, password : string) => {
     try{
       const userFind = await User.findOne({
         attributes : ['id','name','lastname','profileImage','username','description','createdAt'],

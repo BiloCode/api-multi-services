@@ -2,7 +2,7 @@ import { Authentication } from '../../interfaces/Authentication'
 import Admin from '../../../database/mysql/models/Admin';
 
 class AdminAuthentication implements Authentication {
-  public check = async (username : string, password : string) => {
+  public exec = async (username : string, password : string) => {
     const data = await Admin.findOne({
       where : { username, password }
     });

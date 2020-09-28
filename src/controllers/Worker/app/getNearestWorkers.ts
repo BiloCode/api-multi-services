@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetNearestWorker from "../../../application/services/Worker/GetNearestWorker";
+import GetNearestWorker from "../../../application/repository/Worker/GetNearestWorker";
 
 export default async function (req : Request, res : Response) {
   try {

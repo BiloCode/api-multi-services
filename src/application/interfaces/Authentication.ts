@@ -1,3 +1,3 @@
 export interface Authentication {
-  check(username : string, password : string);
+  exec(username : string, password : string);
 }

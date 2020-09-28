@@ -1,5 +1,5 @@
 import { Response , Request } from "express";
-import FindWorkerById from "../../../application/services/Worker/FindWorkerById";
+import FindWorkerById from "../../../application/repository/Worker/FindWorkerById";
 
 export default async function(req : Request , res : Response) {
   try{

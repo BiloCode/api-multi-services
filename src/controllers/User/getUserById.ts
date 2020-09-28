@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import FindUserById from "../../application/services/User/FindUserById";
+import FindUserById from "../../application/repository/User/FindUserById";
 
 export default async function (req : Request, res : Response) {
   try {

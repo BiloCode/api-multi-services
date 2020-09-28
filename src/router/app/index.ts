@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import checkUserAppLogin from "../../controllers/Auth/app/checkUserAppLogin";
-import checkingTokenApp from "../../controllers/Auth/app/checkingTokenApp";
+import * as tokenVerify from "../../controllers/Auth/app/checkingTokenApp";
 import getSpecialtyAll from "../../controllers/Specialty/getSpecialtyAll";
 import getUserById from "../../controllers/User/getUserById";
 import getWorkerById from "../../controllers/Worker/app/getWorkerById";
@@ -26,7 +26,7 @@ app.get('/province/department/:id', getProvinceByDeparment);
 app.get('/district/province/:id', getDistrictByProvince);
 
 app.post('/auth/login', checkUserAppLogin);
-app.post('/auth/token/verify', checkingTokenApp);
+app.post('/auth/token/verify', tokenVerify.Middleware , tokenVerify.Handler);
 
 app.post('/curriculum/add', curriculumCreate);
 app.post('/worker/nearest', getNearestWorkers);
