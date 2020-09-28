@@ -1,7 +1,12 @@
-import Room from "../../../database/mongodb/schemas/Room";
+import Room from "../../database/mongodb/schemas/Room";
+
+interface IMessage {
+  message : string;
+  userId : number;
+}
 
 class SendMessage {
-  public exec = async (roomId : string, message) : Promise<boolean> => {
+  public exec = async (roomId : string, message : IMessage) : Promise<boolean> => {
     try{
       const currentRoom = await Room.findOne({ _id : roomId }).exec()  
       const messages = currentRoom ? 

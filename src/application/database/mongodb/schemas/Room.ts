@@ -1,5 +1,5 @@
 import { model, Schema } from "mongoose";
-import { IRoom } from "../../../application/interfaces/schemas/Room";
+import { IRoom } from "../../../interfaces/schemas/Room";
 
 const MessageSchema = new Schema({
   message : {

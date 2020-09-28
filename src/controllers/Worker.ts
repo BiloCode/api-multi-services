@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
 
 //MODELS
-import Worker from "../database/mysql/models/Worker";
-import Specialty from '../database/mysql/models/Specialty';
-import User from '../database/mysql/models/User';
-import WorkDetail from "../database/mysql/models/WorkDetail";
+import Worker from "../application/database/mysql/models/Worker";
+import Specialty from '../application/database/mysql/models/Specialty';
+import User from '../application/database/mysql/models/User';
+import WorkDetail from "../application/database/mysql/models/WorkDetail";
 
 const query = {
   attributes : [ 'id','availability','basePrice','location'],

@@ -1,4 +1,4 @@
-import Department from "../../../database/mysql/models/Department"
+import Department from "../../database/mysql/models/Department"
 
 class GetDepartments {
   public exec = async () => {

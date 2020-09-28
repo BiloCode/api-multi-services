@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "..";
-import { WorkerModel } from "../../../application/interfaces/models/WorkerModel";
+import { WorkerModel } from "../../../interfaces/models/WorkerModel";
 
 interface Fields extends WorkerModel , Model {};
 

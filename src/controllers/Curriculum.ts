@@ -1,9 +1,9 @@
 import { Request , Response } from 'express';
 
 //MODELS
-import Curriculum from '../database/mysql/models/Curriculum';
-import User from '../database/mysql/models/User';
-import Specialty from '../database/mysql/models/Specialty';
+import Curriculum from '../application/database/mysql/models/Curriculum';
+import User from '../application/database/mysql/models/User';
+import Specialty from '../application/database/mysql/models/Specialty';
 
 export const getCurriculums = async (req:Request,res:Response)=>{
   try {

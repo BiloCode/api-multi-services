@@ -1,4 +1,4 @@
-import Specialty from "../../database/mysql/models/Specialty";
+import Specialty from "../database/mysql/models/Specialty";
 
 class GetSpecialties {
   public find = async () => {

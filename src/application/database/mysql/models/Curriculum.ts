@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import sequelize from "..";
-import { CurriculumModel } from "../../../application/interfaces/models/CurriculumModel";
+import { CurriculumModel } from "../../../interfaces/models/CurriculumModel";
 
 interface Fields extends CurriculumModel , Model {};
 

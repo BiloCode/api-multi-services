@@ -1,7 +1,7 @@
 import { Authentication } from "../../interfaces/Authentication";
-import User from "../../../database/mysql/models/User";
-import District from "../../../database/mysql/models/District";
-import Province from "../../../database/mysql/models/Province";
+import User from "../../database/mysql/models/User";
+import District from "../../database/mysql/models/District";
+import Province from "../../database/mysql/models/Province";
 
 class UserAppAuthentication implements Authentication {
   public exec = async (username : string, password : string) => {

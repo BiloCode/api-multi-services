@@ -1,5 +1,5 @@
 import { Authentication } from '../../interfaces/Authentication'
-import Admin from '../../../database/mysql/models/Admin';
+import Admin from '../../database/mysql/models/Admin';
 
 class AdminAuthentication implements Authentication {
   public exec = async (username : string, password : string) => {

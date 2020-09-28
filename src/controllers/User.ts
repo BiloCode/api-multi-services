@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import User from "../database/mysql/models/User";
-import District from "../database/mysql/models/District";
-import Worker from "../database/mysql/models/Worker";
+import User from "../application/database/mysql/models/User";
+import District from "../application/database/mysql/models/District";
+import Worker from "../application/database/mysql/models/Worker";
 
 export const getUsers = async (req : Request, res : Response) => {
   try{

@@ -11,9 +11,9 @@ import routerApp from './router/app';
 import routerPanel from './router/panel';
 
 //Database (mongodb / mysql)
-import './database/mongodb';
-import sequelize from './database/mysql';
-import './database/mysql/associations';
+import './application/database/mongodb';
+import sequelize from './application/database/mysql';
+import './application/database/mysql/associations';
 
 //Configuration
 const app = express();

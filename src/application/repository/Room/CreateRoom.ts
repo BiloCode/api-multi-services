@@ -1,4 +1,4 @@
-import Room from "../../../database/mongodb/schemas/Room";
+import Room from "../../database/mongodb/schemas/Room";
 
 class CreateRoom {
   public exec = async (users : [number,number]) => {

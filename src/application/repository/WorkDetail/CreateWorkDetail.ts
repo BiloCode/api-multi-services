@@ -1,4 +1,4 @@
-import WorkDetail from "../../../database/mysql/models/WorkDetail";
+import WorkDetail from "../../database/mysql/models/WorkDetail";
 
 interface IParams {
   userId : number;

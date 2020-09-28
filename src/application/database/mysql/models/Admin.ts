@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '..';
-import { AdminModel } from '../../../application/interfaces/models/AdminModel';
+import { AdminModel } from '../../../interfaces/models/AdminModel';
 
 interface Fields extends AdminModel , Model {}
 

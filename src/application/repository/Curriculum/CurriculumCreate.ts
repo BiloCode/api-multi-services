@@ -1,4 +1,4 @@
-import Curriculum from "../../../database/mysql/models/Curriculum";
+import Curriculum from "../../database/mysql/models/Curriculum";
 import { CurriculumModelAdd } from "../../interfaces/models/CurriculumModel";
 
 
