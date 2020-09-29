@@ -19,6 +19,7 @@ const MessageSchema = new Schema({
 const RoomSchema = new Schema({
   users : {
     type : [Number,Number],
+    unique : true,
     required : true
   },
   messages : {

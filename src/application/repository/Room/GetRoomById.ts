@@ -3,7 +3,7 @@ import Room from "../../database/mongodb/schemas/Room";
 class GetRoomById {
   public exec = async (id : string) => {
     try {
-      const room = await Room.findOne({ _id : id }).exec();
+      const room = await Room.findOne({ _id : id });
       return room;
     }catch(e){
       console.log(e);
