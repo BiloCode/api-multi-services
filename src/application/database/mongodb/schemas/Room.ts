@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import arrayUniquePlugin from 'mongoose-unique-array';
 import { IRoom } from "../../../interfaces/schemas/Room";
 
 const MessageSchema = new Schema({
@@ -31,5 +32,7 @@ const RoomSchema = new Schema({
     updatedAt : false
   }
 });
+
+RoomSchema.plugin(arrayUniquePlugin);
 
 export default model<IRoom>('room',RoomSchema);
