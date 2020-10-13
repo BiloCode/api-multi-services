@@ -7,7 +7,7 @@ class UserAppAuthentication implements Authentication {
   public exec = async (username : string, password : string) => {
     try{
       const userFind = await User.findOne({
-        attributes : ['id','name','lastname','profileImage','username','description','createdAt'],
+        attributes : ['id','fullName','profileImage','username','description','createdAt'],
         include : [
           {
             model : District,

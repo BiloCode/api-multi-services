@@ -11,7 +11,7 @@ class GetNewsWorkers {
         include : [
           {
             model : User,
-            attributes : ['name','lastname','profileImage','description'],
+            attributes : ['fullName','profileImage','description'],
             include : [
               {
                 model : District,

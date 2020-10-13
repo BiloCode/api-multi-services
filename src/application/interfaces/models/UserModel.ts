@@ -1,6 +1,5 @@
 export interface UserModelAdd {
-  name : string;
-  lastname : string;
+  fullName : string;
   username : string;
   password : string;
   districtId : number;

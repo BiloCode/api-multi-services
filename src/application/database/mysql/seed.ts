@@ -48,11 +48,11 @@ const district = [
 
 //User
 const user = [
-  { name : 'billy' , lastname : 'paredes' , username : 'billy' , password : '123456' , districtId : 1 },
-  { name : 'imanol' , lastname : 'mayo' , username : 'imanol' , password : '123456', districtId : 2 },
-  { name : 'ttito' , lastname : 'chavez' , username : 'ttito' , password : '123456', districtId : 1 },
-  { name : 'cezar' , lastname : 'jefe' , username : 'cezar' , password : '123456', districtId : 3 },
-  { name : 'desconocido' , lastname : 'desconocido' , username : 'desconocido' , password : '123456', districtId : 1 }
+  { fullName : 'billy paredes' , username : 'billy' , password : '123456' , districtId : 1 },
+  { fullName : 'imanol mayo' , username : 'imanol' , password : '123456', districtId : 2 },
+  { fullName : 'ttito chavez' , username : 'ttito' , password : '123456', districtId : 1 },
+  { fullName : 'cezar jefe' , username : 'cezar' , password : '123456', districtId : 3 },
+  { fullName : 'desconocido desconocido' , username : 'desconocido' , password : '123456', districtId : 1 }
 ];
 
 //Specialties

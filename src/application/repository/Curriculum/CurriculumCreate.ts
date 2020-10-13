@@ -1,7 +1,6 @@
 import Curriculum from "../../database/mysql/models/Curriculum";
 import { CurriculumModelAdd } from "../../interfaces/models/CurriculumModel";
 
-
 class CurriculumCreate {
   public run = async (data : CurriculumModelAdd) => {
     try {

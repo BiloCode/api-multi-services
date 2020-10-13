@@ -6,7 +6,7 @@ class FindUserById {
   public exec = async (id : number) => {
     try {
       const userFind = await User.findByPk(id,{
-        attributes : ['id','name','lastname','profileImage','description','createdAt'],
+        attributes : ['id','fullName','profileImage','description','createdAt'],
         include : [
           {
             model : District,

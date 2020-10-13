@@ -5,11 +5,7 @@ import { UserModel } from "../../../interfaces/models/UserModel";
 interface Fields extends UserModel , Model {}
 
 const User = sequelize.define<Fields>('user',{
-  name : {
-    type : DataTypes.STRING,
-    allowNull : false
-  },
-  lastname : {
+  fullName : {
     type : DataTypes.STRING,
     allowNull : false
   },

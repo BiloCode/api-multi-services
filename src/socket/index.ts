@@ -15,7 +15,7 @@ export const startServer = server => {
         }
 
         socket.join(room!._id);
-        socket.emit('send-room-data', room!);
+        socket.to(room!._id).emit('send-room-data', room!);
       }catch(e){
         console.log(e);
       }
