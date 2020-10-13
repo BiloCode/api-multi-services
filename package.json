@@ -7,7 +7,7 @@
     "start": "node .",
     "dev": "nodemon",
     "build": "tsc",
-    "seed": "ts-node ./src/database/mysql/seed.ts"
+    "seed": "ts-node ./src/application/database/mysql/seed.ts"
   },
   "keywords": [],
   "author": "",
