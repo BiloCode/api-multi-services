@@ -11,7 +11,7 @@ class FindWorkerById {
         include : [
           {
             model : User,
-            attributes : ['name','lastname','profileImage','districtId','description'],
+            attributes : ['fullName','profileImage','districtId','description'],
             include : [
               {
                 model : District,

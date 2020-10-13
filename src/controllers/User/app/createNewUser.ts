@@ -3,10 +3,9 @@ import UserCreate from "../../../application/repository/User/UserCreate";
 
 export default async (req : Request, res : Response) => {
   try {
-    const { name , lastname , username, password, districtId } = req.body;
+    const { fullName , username, password, districtId } = req.body;
     const isRegister = await new UserCreate().exec({
-      name,
-      lastname,
+      fullName,
       username,
       password,
       districtId : parseInt(districtId)

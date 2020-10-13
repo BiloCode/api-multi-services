@@ -1,6 +1,8 @@
+import { WorkerState } from "../../types";
+
 export interface WorkerModel {
   id : number;
-  availability : 'available' | 'not-available';
+  availability : WorkerState;
   location : string;
   basePrice : number;
   createdAt : Date;

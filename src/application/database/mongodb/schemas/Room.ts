@@ -4,7 +4,7 @@ import { IRoom } from "../../../interfaces/schemas/Room";
 
 const MessageSchema = new Schema({
   message : {
-    type : Number,
+    type : String,
     required : true
   },
   userId : {

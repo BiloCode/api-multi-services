@@ -7,7 +7,7 @@ class CreateRoom {
 
       return await newRoom.save();
     }catch(e){
-      console.log(e);
+      console.log(e.message);
       return null;
     }
   }

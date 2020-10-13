@@ -8,10 +8,10 @@ const WorkDetail = sequelize.define<Fields>('workdetail', {
   state : {
     type : DataTypes.STRING,
     defaultValue : 'waiting-confirmation'
-  } ,
+  },
   price : {
     type : DataTypes.DOUBLE,
-  } ,
+  },
   description :{
     type:DataTypes.STRING,
     defaultValue : ''

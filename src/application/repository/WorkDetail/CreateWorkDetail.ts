@@ -3,6 +3,8 @@ import WorkDetail from "../../database/mysql/models/WorkDetail";
 interface IParams {
   userId : number;
   workerId : number;
+  price : number;
+  description : string;
 }
 
 class CreateWorkDetail {
