@@ -1,6 +1,6 @@
-import CreateRoom from "../application/repository/Room/CreateRoom";
-import GetRoomByUsers from "../application/repository/Room/GetRoomByUsers";
-import SendMessage from "../application/repository/Room/SendMessage";
+import CreateRoom from "../application/features/Room/CreateRoom";
+import GetRoomByUsers from "../application/features/Room/GetRoomByUsers";
+import SendMessage from "../application/features/Room/SendMessage";
 
 export const startServer = server => {
   const io = require('socket.io')(server);

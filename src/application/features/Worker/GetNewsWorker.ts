@@ -30,7 +30,7 @@ class GetNewsWorkers {
             attributes : ['name']
           }
         ],
-        attributes : ['id','availability','location','basePrice','createdAt','backgroundImage'],
+        attributes : ['id','availability','location','basePrice','createdAt'],
         limit : 8,
         order: [
           ['createdAt','ASC']

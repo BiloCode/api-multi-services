@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetSpecialties from "../../application/repository/GetSpecialties";
+import GetSpecialties from "../../application/features/GetSpecialties";
 
 export default async function(req : Request , res : Response) {
   try {

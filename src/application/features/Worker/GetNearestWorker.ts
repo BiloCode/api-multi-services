@@ -33,7 +33,7 @@ class GetNearestWorker {
             attributes : ['name']
           }
         ],
-        attributes : ['id','availability','location','basePrice','backgroundImage'],
+        attributes : ['id','availability','location','basePrice'],
         limit : 8
       });
 

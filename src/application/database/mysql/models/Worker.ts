@@ -5,10 +5,6 @@ import { WorkerModel } from "../../../interfaces/models/WorkerModel";
 interface Fields extends WorkerModel , Model {};
 
 const Worker = sequelize.define<Fields>('worker', {
-  backgroundImage : {
-    type : DataTypes.STRING,
-    defaultValue : ''
-  },
   availability : {
     type : DataTypes.STRING,
     defaultValue : 'available'

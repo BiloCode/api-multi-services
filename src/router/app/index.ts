@@ -13,24 +13,31 @@ import getDistrictByProvince from "../../controllers/District/getDistrictByProvi
 import createNewUser from "../../controllers/User/app/createNewUser";
 
 import * as tokenVerify from "../../controllers/Auth/app/tokenVerify";
+import updateFullName from "../../controllers/User/app/updateFullName";
+import updateDescription from "../../controllers/User/app/updateDescription";
+import getWorkListByWorkerId from "../../controllers/Work/getWorkListByWorkerId";
 
 const app = Router();
 
-app.get('/worker/new', getNewsWorkers);
-app.get('/worker/:id', getWorkerById);
+app.post('/auth/login', checkUserAppLogin);
+app.post('/auth/token/verify', tokenVerify.Middleware , tokenVerify.Handler);
 
 app.get('/specialty', getSpecialtyAll);
-app.get('/user/:id', getUserById);
 
 app.get('/department', getDepartments);
 app.get('/province/department/:id', getProvinceByDeparment);
 app.get('/district/province/:id', getDistrictByProvince);
 
-app.post('/auth/login', checkUserAppLogin);
-app.post('/auth/token/verify', tokenVerify.Middleware , tokenVerify.Handler);
-
 app.post('/curriculum/add', curriculumCreate);
-app.post('/worker/nearest', getNearestWorkers);
+
+app.get('/user/:id', getUserById);
 app.post('/user/add', createNewUser);
+
+app.get('/worker/new', getNewsWorkers);
+app.get('/worker/:id', getWorkerById);
+app.post('/worker/nearest', getNearestWorkers);
+app.post('/worker/update/fullname', updateFullName);
+app.post('/worker/update/description', updateDescription);
+app.post('/worker/list/work', getWorkListByWorkerId);
 
 export default app;

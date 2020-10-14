@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import GetFormattedToken from "../../../application/repository/Token/GetFormattedToken";
-import TokenIsExpired from "../../../application/repository/Token/TokenValidate";
+import GetFormattedToken from "../../../application/features/Token/GetFormattedToken";
+import TokenIsExpired from "../../../application/features/Token/TokenValidate";
 
 export default function(req : Request, res : Response) {
   try{

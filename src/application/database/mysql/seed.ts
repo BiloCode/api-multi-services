@@ -66,13 +66,13 @@ const specialty = [
 
 //Worker
 const worker = [
-  { userId : 1 , specialtyId : 1 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' },
-  { userId : 2 , specialtyId : 3 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' }
+  { userId : 1 , specialtyId : 1 , basePrice : 15 },
+  { userId : 2 , specialtyId : 3 , basePrice : 15 }
 ];
 
 //Work Detail
 const workDetail = [
-  { userId : 3 , workerId : 1, state : 'pendient' , price : 15.56, description : 'Muy buen trabajo' }
+  { userId : 3 , workerId : 1, state : 'pendient' , price : 15.56, title : 'Atencion al Cliente', description : 'Necesito atender una pequeña necesidad aqui en mi hogar.' }
 ];
 
 (async () => {

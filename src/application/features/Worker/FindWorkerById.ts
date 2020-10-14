@@ -30,7 +30,7 @@ class FindWorkerById {
             attributes : ['name']
           }
         ],
-        attributes : ['id','availability','location','basePrice','backgroundImage']
+        attributes : ['id','availability','location','basePrice']
       });
 
       return worker;

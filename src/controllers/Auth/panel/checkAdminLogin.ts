@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import AdminAuthentication from "../../../application/repository/Admin/AdminAuthentication";
-import TokenCreate from "../../../application/repository/Token/TokenCreate";
+import AdminAuthentication from "../../../application/features/Admin/AdminAuthentication";
+import TokenCreate from "../../../application/features/Token/TokenCreate";
 
 export default async function( req : Request, res : Response ) {
   try{

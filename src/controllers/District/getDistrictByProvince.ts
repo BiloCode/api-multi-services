@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetDistrictByProvince from "../../application/repository/District/GetDistrictByProvince";
+import GetDistrictByProvince from "../../application/features/District/GetDistrictByProvince";
 
 export default async (req : Request, res : Response) => {
   try {

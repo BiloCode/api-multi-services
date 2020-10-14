@@ -12,9 +12,17 @@ const WorkDetail = sequelize.define<Fields>('workdetail', {
   price : {
     type : DataTypes.DOUBLE,
   },
+  title : {
+    type : DataTypes.STRING,
+    allowNull : false
+  },
   description :{
     type:DataTypes.STRING,
-    defaultValue : ''
+    allowNull : false
+  },
+  finished : {
+    type : DataTypes.DATE,
+    defaultValue : null
   }
 },{
   timestamps : true

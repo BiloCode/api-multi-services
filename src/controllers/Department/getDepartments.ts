@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetDepartments from "../../application/repository/Department/GetDepartments";
+import GetDepartments from "../../application/features/Department/GetDepartments";
 
 export default async (req : Request, res : Response) => {
   try {
