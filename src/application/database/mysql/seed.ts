@@ -72,7 +72,14 @@ const worker = [
 
 //Work Detail
 const workDetail = [
-  { userId : 3 , workerId : 1, state : 'pendient' , price : 15.56, title : 'Atencion al Cliente', description : 'Necesito atender una pequeña necesidad aqui en mi hogar.' }
+  {
+    userId : 3,
+    workerId : 1,
+    state : 'pendient',
+    price : 15.56,
+    title : 'Atencion al Cliente',
+    description : 'Necesito atender una pequeña necesidad aqui en mi hogar.'
+  }
 ];
 
 (async () => {

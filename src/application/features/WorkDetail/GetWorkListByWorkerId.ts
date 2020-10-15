@@ -1,19 +1,27 @@
+import District from "../../database/mysql/models/District";
+import User from "../../database/mysql/models/User";
 import WorkDetail from "../../database/mysql/models/WorkDetail";
-import Worker from "../../database/mysql/models/Worker";
 
 class GetWorkListByWorkerId {
   public exec = async (workerId : number) => {
     try {
-      const works = await WorkDetail.findAll({
-         include : [
-           {
-             model : Worker,
-             where : {
-               id : workerId
-             }
-           }
-         ],
-         attributes : ['id','title','description','price','finished','state','createdAt']
+      let works = await WorkDetail.findAll({
+        include : [
+          {
+            model : User,
+            attributes : ['id'],
+            include : [
+              {
+                model : District,
+                attributes : ['name','location'],
+              }
+            ]
+          }
+        ],
+        attributes : ['id','title','description','price','finished','state','createdAt'],
+        where : {
+          workerId
+        } 
       });
 
       return works;

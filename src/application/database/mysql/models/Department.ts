@@ -11,6 +11,10 @@ const Department = sequelize.define('department',{
     type : DataTypes.STRING,
     unique : true
   },
+  location : {
+    type : DataTypes.JSON,
+    defaultValue : '{}'
+  }
 },{
   timestamps : false
 });

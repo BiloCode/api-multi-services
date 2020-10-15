@@ -1,3 +1,4 @@
+import { FindOptions } from "sequelize/types";
 import District from "../../database/mysql/models/District";
 import Province from "../../database/mysql/models/Province";
 import Specialty from "../../database/mysql/models/Specialty";
@@ -7,9 +8,9 @@ import Worker from "../../database/mysql/models/Worker";
 class GetNearestWorker {
 
   //Search for district
-  public run = async (districtId : number) => {
+  public exec = async (districtId : number, limit? : number) => {
     try{ 
-      const workers = await Worker.findAll({
+      const WorkerRequestConfig : FindOptions = {
         include : [
           {
             model : User,
@@ -33,9 +34,12 @@ class GetNearestWorker {
             attributes : ['name']
           }
         ],
-        attributes : ['id','availability','location','basePrice'],
-        limit : 8
-      });
+        attributes : ['id','availability','basePrice']
+      }
+
+      if(limit) WorkerRequestConfig.limit = limit;
+
+      const workers = await Worker.findAll(WorkerRequestConfig);
 
       return workers;
     }catch(e){

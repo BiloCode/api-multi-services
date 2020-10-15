@@ -17,7 +17,7 @@ const WorkDetail = sequelize.define<Fields>('workdetail', {
     allowNull : false
   },
   description :{
-    type:DataTypes.STRING,
+    type: DataTypes.STRING,
     allowNull : false
   },
   finished : {

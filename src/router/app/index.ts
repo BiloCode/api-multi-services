@@ -16,6 +16,8 @@ import * as tokenVerify from "../../controllers/Auth/app/tokenVerify";
 import updateFullName from "../../controllers/User/app/updateFullName";
 import updateDescription from "../../controllers/User/app/updateDescription";
 import getWorkListByWorkerId from "../../controllers/Work/getWorkListByWorkerId";
+import getNearestWorkersUnlimited from "../../controllers/Worker/app/getNearestWorkersUnlimited";
+import getWorkListByUserId from "../../controllers/Work/getWorkListByUserId";
 
 const app = Router();
 
@@ -32,9 +34,11 @@ app.post('/curriculum/add', curriculumCreate);
 
 app.get('/user/:id', getUserById);
 app.post('/user/add', createNewUser);
+app.post('/user/list/work', getWorkListByUserId);
 
 app.get('/worker/new', getNewsWorkers);
 app.get('/worker/:id', getWorkerById);
+app.post('/worker/nearest/unlimited', getNearestWorkersUnlimited);
 app.post('/worker/nearest', getNearestWorkers);
 app.post('/worker/update/fullname', updateFullName);
 app.post('/worker/update/description', updateDescription);

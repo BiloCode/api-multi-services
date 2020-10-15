@@ -8,6 +8,10 @@ const District = sequelize.define('district',{
     primaryKey : true
   },
   name : DataTypes.STRING,
+  location : {
+    type : DataTypes.JSON,
+    defaultValue : '{}'
+  }
 },{
   timestamps : false,
 });

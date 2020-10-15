@@ -9,10 +9,6 @@ const Worker = sequelize.define<Fields>('worker', {
     type : DataTypes.STRING,
     defaultValue : 'available'
   },
-  location : {
-    type : DataTypes.STRING,
-    defaultValue  :''
-  },
   basePrice : {
     type : DataTypes.DOUBLE,
     allowNull : false
