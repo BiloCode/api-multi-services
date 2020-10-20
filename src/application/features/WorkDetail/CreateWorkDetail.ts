@@ -15,6 +15,7 @@ class CreateWorkDetail {
       return isCreate ? true : false;
     } catch (e) {
       console.log(e);
+      return false;
     }
   }
 }

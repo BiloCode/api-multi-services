@@ -11,15 +11,15 @@ class FindWorkerById {
         include : [
           {
             model : User,
-            attributes : ['fullName','profileImage','districtId','description'],
+            attributes : ['id','fullName','profileImage','description','createdAt'],
             include : [
               {
                 model : District,
-                attributes : ['name'],
+                attributes : ['name','id','location'],
                 include : [
                   {
                     model : Province,
-                    attributes : ['name']
+                    attributes : ['name','location']
                   }
                 ]
               }

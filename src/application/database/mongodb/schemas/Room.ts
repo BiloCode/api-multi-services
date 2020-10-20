@@ -1,30 +1,17 @@
 import { model, Schema } from "mongoose";
-import arrayUniquePlugin from 'mongoose-unique-array';
-import { IRoom } from "../../../interfaces/schemas/Room";
 
-const MessageSchema = new Schema({
-  message : {
-    type : String,
+const RoomSchema = new Schema({
+  workerId : {
+    type : Number,
     required : true
   },
   userId : {
     type : Number,
     required : true
-  }
-},{
-  timestamps : {
-    updatedAt : false
-  }
-});
-
-const RoomSchema = new Schema({
-  users : {
-    type : [Number,Number],
-    unique : true,
-    required : true
   },
-  messages : {
-    type : [MessageSchema],
+  messageList : {
+    type : [Schema.Types.ObjectId],
+    ref : 'message',
     default : []
   }
 }, {
@@ -33,6 +20,4 @@ const RoomSchema = new Schema({
   }
 });
 
-RoomSchema.plugin(arrayUniquePlugin);
-
-export default model<IRoom>('room',RoomSchema);
+export default model('room',RoomSchema);

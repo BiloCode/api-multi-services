@@ -9,7 +9,7 @@ class GetWorkListByWorkerId {
         include : [
           {
             model : User,
-            attributes : ['id'],
+            attributes : ['id','profileImage'],
             include : [
               {
                 model : District,
