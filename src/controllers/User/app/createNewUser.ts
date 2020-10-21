@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import UserCreate from "../../../application/repository/User/UserCreate";
+import UserCreate from "../../../application/features/User/UserCreate";
 
 export default async (req : Request, res : Response) => {
   try {

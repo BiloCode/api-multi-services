@@ -2,6 +2,7 @@ import WorkDetail from "../../database/mysql/models/WorkDetail";
 
 interface IParams {
   userId : number;
+  location : string;
   workerId : number;
   price : number;
   description : string;
@@ -14,6 +15,7 @@ class CreateWorkDetail {
       return isCreate ? true : false;
     } catch (e) {
       console.log(e);
+      return false;
     }
   }
 }

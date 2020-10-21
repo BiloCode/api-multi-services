@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import GetFormattedToken from "../../../application/repository/Token/GetFormattedToken";
-import TokenDecode from "../../../application/repository/Token/TokenDecode";
-import TokenIsExpired from "../../../application/repository/Token/TokenValidate";
-import FindUserById from "../../../application/repository/User/FindUserById";
-import FindWorkerById from "../../../application/repository/Worker/FindWorkerById";
+import GetFormattedToken from "../../../application/features/Token/GetFormattedToken";
+import TokenDecode from "../../../application/features/Token/TokenDecode";
+import TokenIsExpired from "../../../application/features/Token/TokenValidate";
+import FindUserById from "../../../application/features/User/FindUserById";
+import FindWorkerById from "../../../application/features/Worker/FindWorkerById";
 
 export const Middleware = (req : Request , res : Response, next : NextFunction) => {
   const { token } = req.body;

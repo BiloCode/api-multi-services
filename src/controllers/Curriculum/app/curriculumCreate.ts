@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import CurriculumCreate from "../../../application/repository/Curriculum/CurriculumCreate";
+import CurriculumCreate from "../../../application/features/Curriculum/CurriculumCreate";
 
 export default async function (req : Request, res : Response) {
   try {

@@ -1,16 +1,11 @@
 import Room from "../../database/mongodb/schemas/Room";
 
-interface IMessage {
-  message : string;
-  userId : number;
-}
-
 class SendMessage {
-  public exec = async (roomId : string, message : IMessage) : Promise<boolean> => {
+  public exec = async (roomId : string, messageId : string) : Promise<boolean> => {
     try{
       const updateRoom = await Room.updateOne(
         { _id : roomId },
-        { $push : { messages : message } 
+        { $push : { messageList : messageId }
       });
 
       return updateRoom.n > 0;

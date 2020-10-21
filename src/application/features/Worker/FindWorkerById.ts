@@ -4,45 +4,40 @@ import Specialty from "../../database/mysql/models/Specialty";
 import User from "../../database/mysql/models/User";
 import Worker from "../../database/mysql/models/Worker";
 
-class GetNearestWorker {
-
-  //Search for district
-  public run = async (districtId : number) => {
-    try{ 
-      const workers = await Worker.findAll({
+class FindWorkerById {
+  public find = async (id : number) => {
+    try {
+      const worker = await Worker.findByPk(id, {
         include : [
           {
             model : User,
-            attributes : ['fullName','profileImage','description'],
+            attributes : ['id','fullName','profileImage','description','createdAt'],
             include : [
               {
                 model : District,
-                attributes : ['name'],
+                attributes : ['name','id','location'],
                 include : [
                   {
                     model : Province,
-                    attributes : ['name']
+                    attributes : ['name','location']
                   }
                 ]
               }
-            ],
-            where : { districtId }
+            ]
           },
           {
             model : Specialty,
             attributes : ['name']
           }
         ],
-        attributes : ['id','availability','location','basePrice','backgroundImage'],
-        limit : 8
+        attributes : ['id','availability','basePrice']
       });
 
-      return workers;
-    }catch(e){
+      return worker;
+    }catch(e) {
       console.log(e);
-      return null;
     }
   }
 }
 
-export default GetNearestWorker;
+export default FindWorkerById;

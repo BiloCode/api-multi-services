@@ -8,6 +8,10 @@ const Province = sequelize.define('province',{
     primaryKey : true
   },
   name : DataTypes.STRING,
+  location : {
+    type : DataTypes.JSON,
+    defaultValue : '{}'
+  }
 },{
   timestamps : false
 });

@@ -2,7 +2,7 @@ import User from "../../database/mysql/models/User";
 import WorkDetail from "../../database/mysql/models/WorkDetail";
 import Worker from "../../database/mysql/models/Worker";
 
-class GetUserWorkdsDetail {
+class GetUserWorksDetail {
   public exec =  async (userId : number) => {
     try {
       const works = await WorkDetail.findAll({
@@ -27,4 +27,4 @@ class GetUserWorkdsDetail {
   }
 }
 
-export default GetUserWorkdsDetail;
+export default GetUserWorksDetail;

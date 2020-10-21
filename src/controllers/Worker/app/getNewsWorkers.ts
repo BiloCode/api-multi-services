@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import GetNewsWorkers from "../../../application/repository/Worker/GetNewsWorker";
+import GetNewsWorkers from "../../../application/features/Worker/GetNewsWorker";
 
 export default async function(req : Request, res : Response) {
   try {
