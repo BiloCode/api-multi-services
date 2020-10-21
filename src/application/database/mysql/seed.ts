@@ -48,11 +48,11 @@ const district = [
 
 //User
 const user = [
-  { fullName : 'billy paredes' , username : 'billy' , password : '123456' , districtId : 1 },
-  { fullName : 'imanol mayo' , username : 'imanol' , password : '123456', districtId : 2 },
-  { fullName : 'ttito chavez' , username : 'ttito' , password : '123456', districtId : 1 },
-  { fullName : 'cezar jefe' , username : 'cezar' , password : '123456', districtId : 3 },
-  { fullName : 'desconocido desconocido' , username : 'desconocido' , password : '123456', districtId : 1 }
+  { fullName : 'Billy paredes' , username : 'billy' , password : '123456' , districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Imanol mayo' , username : 'imanol' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Ttito chavez' , username : 'ttito' , password : '123456', districtId : 3 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Cezar jefe' , username : 'cezar' , password : '123456', districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Jhony Vega' , username : 'desconocido' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'}
 ];
 
 //Specialties
@@ -66,8 +66,8 @@ const specialty = [
 
 //Worker
 const worker = [
-  { userId : 1 , specialtyId : 1 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' },
-  { userId : 2 , specialtyId : 3 , basePrice : 15 , backgroundImage : 'https://www.logaster.com.es/blog/wp-content/uploads/sites/4/2019/01/4-min-620x350.jpg' }
+  { userId : 1 , specialtyId : 1 , basePrice : 15 , backgroundImage : 'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg' },
+  { userId : 2 , specialtyId : 3 , basePrice : 15 , backgroundImage : 'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg' }
 ];
 
 //Work Detail

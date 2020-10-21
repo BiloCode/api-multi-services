@@ -6,7 +6,7 @@ import Worker from "../application/database/mysql/models/Worker";
 export const getUsers = async (req : Request, res : Response) => {
   try{
     const users = await User.findAll({
-      attributes : ['id','name','lastname','username','password','description','profileImage','createdAt'],
+      attributes : ['id','fullname','username','password','description','profileImage','createdAt'],
       include : [
         {
           model : District,
@@ -30,7 +30,7 @@ export const getUserByName = async (req:Request,res:Response)=>{
   try {
     const { name } = req.body;
     const users = await User.findAll({
-      attributes : ['id','name','lastname','username','password','description','profileImage','createdAt'],
+      attributes : ['id','fullname','username','password','description','profileImage','createdAt'],
       include : [
         {
           model : District,

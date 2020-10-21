@@ -11,7 +11,7 @@ const query = {
   include : [
     {
       model : User,
-      attributes : ['name','username','lastName','profileImage'],
+      attributes : ['fullname','username','profileImage'],
     },
     {
       model : Specialty,
@@ -23,7 +23,7 @@ const query = {
       include : [
         {
           model : User,
-          attributes : ['name','lastname','description']
+          attributes : ['fullname','description']
         }
       ]
     }
@@ -95,21 +95,21 @@ export const workerUpdate = async (req:Request,res:Response)=>{
 }
 
 export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
-  const { filter : specialty } = req.params;
+  const { filter } = req.params;
 
   try{
     const workers = await Worker.findAll({
-      attributes:['id','availability','basePrice'],
+      attributes:['id','availability','basePrice','location'],
       include : [
         {
           model : User,
-          attributes: ['name','lastName','username','password']
+          attributes: ['fullname','username','password']
         },
         {
           model : Specialty,
           attributes : ['name'],
           where : { 
-            name : specialty 
+            name : filter 
           }
         }
       ]

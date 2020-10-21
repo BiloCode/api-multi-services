@@ -34,6 +34,24 @@ District.hasMany(User, {
 
 User.belongsTo(District);
 
+//Worker id -> WorkDetail
+Worker.hasMany(WorkDetail,{
+  foreignKey : {
+    allowNull : false
+  }
+});
+
+WorkDetail.belongsTo(Worker);
+
+//User id -> WorkDetail
+User.hasMany(WorkDetail,{
+  foreignKey : {
+    allowNull : false
+  }
+});
+
+WorkDetail.belongsTo(User);
+
 //Specialty id -> Worker
 Specialty.hasOne(Worker,{
   foreignKey : {
@@ -69,21 +87,3 @@ User.hasOne(Curriculum,{
 });
 
 Curriculum.belongsTo(User);
-
-//Worker id -> WorkDetail
-Worker.hasMany(WorkDetail,{
-  foreignKey : {
-    allowNull : false
-  }
-});
-
-WorkDetail.belongsTo(Worker);
-
-//User id -> WorkDetail
-User.hasMany(WorkDetail,{
-  foreignKey : {
-    allowNull : false
-  }
-});
-
-WorkDetail.belongsTo(User);
