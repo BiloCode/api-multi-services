@@ -95,7 +95,7 @@ export const workerUpdate = async (req:Request,res:Response)=>{
 }
 
 export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
-  const { filter } = req.params;
+  const { specialty } = req.body;
 
   try{
     const workers = await Worker.findAll({
@@ -103,14 +103,24 @@ export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
       include : [
         {
           model : User,
-          attributes: ['fullname','username','password']
+          attributes: ['fullname','username','profileImage']
         },
         {
           model : Specialty,
           attributes : ['name'],
           where : { 
-            name : filter 
+            name : specialty 
           }
+        },
+        {
+          model : WorkDetail,
+          attributes : ['state','price','description'],
+          include : [
+            {
+              model : User,
+              attributes : ['fullname','description']
+            }
+          ]
         }
       ]
     }) 

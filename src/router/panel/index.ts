@@ -22,7 +22,7 @@ app.post('/user/filter',getUserByName);
 
 //Workers
 app.get('/worker',getWorkers);
-app.get('/worker/filter/:filter',getWorkersBySpecialty);
+app.post('/worker/filter',getWorkersBySpecialty);
 app.get('/worker/:id', getWorkerById);
 app.post('/worker/add', workerCreate);
 app.post('/worker/update',workerUpdate);
