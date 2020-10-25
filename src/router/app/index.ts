@@ -40,8 +40,8 @@ app.post('/user/add', createNewUser);
 app.post('/user/list/work', getWorkListByUserId);
 app.post('/user/join/room', joinRoom);
 
-app.get('/worker/new', getNewsWorkers);
-app.get('/worker/:id', getWorkerById);
+app.get('/worker/find/new', getNewsWorkers);
+app.get('/worker/find/id/:id', getWorkerById);
 app.get('/worker/find/specialty/:specialtyId', getWorkerBySpecialty);
 app.get('/worker/find/name/:name', getWorkerByName);
 app.post('/worker/nearest/unlimited', getNearestWorkersUnlimited);
