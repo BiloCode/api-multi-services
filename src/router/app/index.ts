@@ -18,6 +18,8 @@ import updateDescription from "../../controllers/User/app/updateDescription";
 import getWorkListByWorkerId from "../../controllers/Work/getWorkListByWorkerId";
 import getNearestWorkersUnlimited from "../../controllers/Worker/app/getNearestWorkersUnlimited";
 import getWorkListByUserId from "../../controllers/Work/getWorkListByUserId";
+import CreateRoom from "../../application/features/Room/CreateRoom";
+import joinRoom from "../../controllers/Room/joinRoom";
 
 const app = Router();
 
@@ -43,5 +45,7 @@ app.post('/worker/nearest', getNearestWorkers);
 app.post('/worker/update/fullname', updateFullName);
 app.post('/worker/update/description', updateDescription);
 app.post('/worker/list/work', getWorkListByWorkerId);
+
+app.post('/user/join/room', joinRoom);
 
 export default app;

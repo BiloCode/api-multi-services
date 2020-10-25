@@ -1,10 +1,10 @@
 import Room from "../../database/mongodb/schemas/Room";
 
 class GetRoomByUsers {
-  public exec = async (workerId : number, userId : number) => {
+  public exec = async (userWorkerId : number, userId : number) => {
     try {
       const userRooms = await Room.findOne({
-        workerId,
+        userWorkerId,
         userId
       }).populate('messageList');
       

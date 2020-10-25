@@ -1,7 +1,7 @@
-import { model, Schema } from "mongoose";
+import { model, Schema , Types } from "mongoose";
 
 const RoomSchema = new Schema({
-  workerId : {
+  userWorkerId : {
     type : Number,
     required : true
   },
@@ -9,11 +9,12 @@ const RoomSchema = new Schema({
     type : Number,
     required : true
   },
-  messageList : {
-    type : [Schema.Types.ObjectId],
-    ref : 'message',
-    default : []
-  }
+  messageList : [
+    {
+      type : [Types.ObjectId],
+      ref : 'message',
+    }
+  ]
 }, {
   timestamps : {
     updatedAt : false
