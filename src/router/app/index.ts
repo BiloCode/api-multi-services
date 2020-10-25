@@ -12,7 +12,7 @@ import getProvinceByDeparment from "../../controllers/Province/getProvinceByDepa
 import getDistrictByProvince from "../../controllers/District/getDistrictByProvince";
 import createNewUser from "../../controllers/User/app/createNewUser";
 
-import * as tokenVerify from "../../controllers/Auth/app/tokenVerify";
+import * as tokenCheking from "../../controllers/Auth/app/tokenCheking";
 import updateFullName from "../../controllers/User/app/updateFullName";
 import updateDescription from "../../controllers/User/app/updateDescription";
 import getWorkListByWorkerId from "../../controllers/Work/getWorkListByWorkerId";
@@ -25,7 +25,7 @@ import getWorkerByName from "../../controllers/Worker/app/getWorkerByName";
 const app = Router();
 
 app.post('/auth/login', checkUserAppLogin);
-app.post('/auth/token/verify', tokenVerify.Middleware , tokenVerify.Handler);
+app.post('/auth/token/verify', tokenCheking.Middleware , tokenCheking.Handler);
 
 app.get('/specialty', getSpecialtyAll);
 
