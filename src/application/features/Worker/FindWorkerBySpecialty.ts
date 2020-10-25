@@ -4,18 +4,18 @@ import Specialty from "../../database/mysql/models/Specialty";
 import User from "../../database/mysql/models/User";
 import Worker from "../../database/mysql/models/Worker";
 
-class GetNewsWorkers {
-  public run = async () => {
-    try{ 
+class FindWorkerBySpecialty {
+  public exec = async (id : number) => {
+    try {
       const workers = await Worker.findAll({
         include : [
           {
             model : User,
-            attributes : ['id','fullName','profileImage','description'],
+            attributes : ['id','fullName','profileImage','description','createdAt'],
             include : [
               {
                 model : District,
-                attributes : ['name','location'],
+                attributes : ['name','id','location'],
                 include : [
                   {
                     model : Province,
@@ -27,14 +27,11 @@ class GetNewsWorkers {
           },
           {
             model : Specialty,
-            attributes : ['name']
+            attributes : ['name'],
+            where : { id }
           }
         ],
-        attributes : ['id','availability','basePrice','createdAt'],
-        limit : 8,
-        order: [
-          ['createdAt','ASC']
-        ]
+        attributes : ['id','availability','basePrice']
       });
 
       return workers;
@@ -45,4 +42,4 @@ class GetNewsWorkers {
   }
 }
 
-export default GetNewsWorkers;
+export default FindWorkerBySpecialty;

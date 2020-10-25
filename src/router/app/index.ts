@@ -18,8 +18,9 @@ import updateDescription from "../../controllers/User/app/updateDescription";
 import getWorkListByWorkerId from "../../controllers/Work/getWorkListByWorkerId";
 import getNearestWorkersUnlimited from "../../controllers/Worker/app/getNearestWorkersUnlimited";
 import getWorkListByUserId from "../../controllers/Work/getWorkListByUserId";
-import CreateRoom from "../../application/features/Room/CreateRoom";
 import joinRoom from "../../controllers/Room/joinRoom";
+import getWorkerBySpecialty from "../../controllers/Worker/app/getWorkerBySpecialty";
+import getWorkerByName from "../../controllers/Worker/app/getWorkerByName";
 
 const app = Router();
 
@@ -37,15 +38,16 @@ app.post('/curriculum/add', curriculumCreate);
 app.get('/user/:id', getUserById);
 app.post('/user/add', createNewUser);
 app.post('/user/list/work', getWorkListByUserId);
+app.post('/user/join/room', joinRoom);
 
 app.get('/worker/new', getNewsWorkers);
 app.get('/worker/:id', getWorkerById);
+app.get('/worker/find/specialty/:specialtyId', getWorkerBySpecialty);
+app.get('/worker/find/name/:name', getWorkerByName);
 app.post('/worker/nearest/unlimited', getNearestWorkersUnlimited);
 app.post('/worker/nearest', getNearestWorkers);
 app.post('/worker/update/fullname', updateFullName);
 app.post('/worker/update/description', updateDescription);
 app.post('/worker/list/work', getWorkListByWorkerId);
-
-app.post('/user/join/room', joinRoom);
 
 export default app;

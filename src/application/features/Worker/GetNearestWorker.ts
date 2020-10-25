@@ -18,11 +18,11 @@ class GetNearestWorker {
             include : [
               {
                 model : District,
-                attributes : ['name'],
+                attributes : ['name','location'],
                 include : [
                   {
                     model : Province,
-                    attributes : ['name']
+                    attributes : ['name','location']
                   }
                 ]
               }
