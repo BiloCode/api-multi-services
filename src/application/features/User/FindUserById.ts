@@ -10,11 +10,11 @@ class FindUserById {
         include : [
           {
             model : District,
-            attributes : ['id','name'],
+            attributes : ['id','name','location'],
             include : [
               { 
                 model : Province,
-                attributes : ['id','name']
+                attributes : ['id','name','location']
               }
             ]
           }

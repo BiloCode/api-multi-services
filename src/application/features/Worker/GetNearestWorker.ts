@@ -14,15 +14,15 @@ class GetNearestWorker {
         include : [
           {
             model : User,
-            attributes : ['fullName','profileImage','description'],
+            attributes : ['id','fullName','profileImage','description'],
             include : [
               {
                 model : District,
-                attributes : ['name'],
+                attributes : ['name','location'],
                 include : [
                   {
                     model : Province,
-                    attributes : ['name']
+                    attributes : ['name','location']
                   }
                 ]
               }

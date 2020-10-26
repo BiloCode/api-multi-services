@@ -1,21 +1,23 @@
+import { Op } from 'sequelize';
+
 import District from "../../database/mysql/models/District";
 import Province from "../../database/mysql/models/Province";
 import Specialty from "../../database/mysql/models/Specialty";
 import User from "../../database/mysql/models/User";
 import Worker from "../../database/mysql/models/Worker";
 
-class GetNewsWorkers {
-  public run = async () => {
-    try{ 
+class FindWorkerByName {
+  public exec = async (name : string) => {
+    try {
       const workers = await Worker.findAll({
         include : [
           {
             model : User,
-            attributes : ['id','fullName','profileImage','description'],
+            attributes : ['id','fullName','profileImage','description','createdAt'],
             include : [
               {
                 model : District,
-                attributes : ['name','location'],
+                attributes : ['name','id','location'],
                 include : [
                   {
                     model : Province,
@@ -23,18 +25,19 @@ class GetNewsWorkers {
                   }
                 ]
               }
-            ]
+            ],
+            where : {
+              fullName : {
+                [Op.like] : `%${name}%`
+              }
+            }
           },
           {
             model : Specialty,
             attributes : ['name']
           }
         ],
-        attributes : ['id','availability','basePrice','createdAt'],
-        limit : 8,
-        order: [
-          ['createdAt','ASC']
-        ]
+        attributes : ['id','availability','basePrice']
       });
 
       return workers;
@@ -45,4 +48,4 @@ class GetNewsWorkers {
   }
 }
 
-export default GetNewsWorkers;
+export default FindWorkerByName;

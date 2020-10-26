@@ -1,6 +1,4 @@
 import CreateMessage from "../application/features/Message/CreateMessage";
-import CreateRoom from "../application/features/Room/CreateRoom";
-import GetRoomByUsers from "../application/features/Room/GetRoomByUsers";
 import SendMessage from "../application/features/Room/SendMessage";
 
 export const startServer = server => {
@@ -8,18 +6,8 @@ export const startServer = server => {
 
   io.on('connection', socket => {
 
-    socket.on('join-room', async ({ workerId, userId }) => {
-      try {
-        let room = await new GetRoomByUsers().exec(workerId, userId);
-        if(!room) {
-          room = await new CreateRoom().exec(workerId, userId);
-        }
-
-        socket.join(room!._id);
-        socket.to(room!._id).emit('send-room-data', room!);
-      }catch(e){
-        console.log(e);
-      }
+    socket.on('join-room', ({ roomId }) => {
+      socket.join(roomId);
     });
 
     socket.on('send-message', async ({ userId , message , roomId }) => {
@@ -28,13 +16,17 @@ export const startServer = server => {
         const isSendMessage = await new SendMessage().exec(roomId,messageSave?.id);
         
         if(isSendMessage)
-          socket.to(roomId).emit('send-message-success', { message, userId });
+          io.sockets.in(roomId).emit('send-message-success', messageSave);
         else
-          socket.to(roomId).emit('send-message-fail');
+          io.sockets.in(roomId).emit('send-message-fail');
       }catch(e){
         console.log(e);
       }
     });
 
+    socket.on('leave-room', ({ roomId }) => {
+      socket.leave(roomId);
+      console.log('User leave...');
+    })
   });
 }

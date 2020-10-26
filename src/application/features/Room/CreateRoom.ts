@@ -1,9 +1,9 @@
 import Room from "../../database/mongodb/schemas/Room";
 
 class CreateRoom {
-  public exec = async (workerId : number, userId : number) => {
+  public exec = async (userWorkerId : number, userId : number) => {
     try {
-      const newRoom = new Room({ workerId, userId });
+      const newRoom = new Room({ userWorkerId, userId });
 
       return await newRoom.save();
     }catch(e){
