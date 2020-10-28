@@ -1,4 +1,5 @@
 import District from "../../database/mysql/models/District";
+import Province from "../../database/mysql/models/Province";
 import User from "../../database/mysql/models/User";
 import WorkDetail from "../../database/mysql/models/WorkDetail";
 
@@ -13,7 +14,13 @@ class GetWorkListByUserId {
             include : [
               {
                 model : District,
-                attributes : ['name','location'],
+                attributes : ['id','name','location'],
+                include : [
+                  {
+                    model : Province,
+                    attributes : ['id','name','location']
+                  }
+                ]
               }
             ]
           }

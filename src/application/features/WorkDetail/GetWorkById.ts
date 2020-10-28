@@ -3,10 +3,10 @@ import Province from "../../database/mysql/models/Province";
 import User from "../../database/mysql/models/User";
 import WorkDetail from "../../database/mysql/models/WorkDetail";
 
-class GetWorkListByWorkerId {
-  public exec = async (workerId : number) => {
+class GetWorkById {
+  public exec = async (id : number) => {
     try {
-      let works = await WorkDetail.findAll({
+      const work = await WorkDetail.findByPk(id,{
         include : [
           {
             model : User,
@@ -26,12 +26,9 @@ class GetWorkListByWorkerId {
           }
         ],
         attributes : ['id','title','description','price','finished','state','createdAt'],
-        where : {
-          workerId
-        } 
       });
 
-      return works;
+      return work;
     }catch(e) {
       console.log(e);
       return null;
@@ -39,4 +36,4 @@ class GetWorkListByWorkerId {
   }
 }
 
-export default GetWorkListByWorkerId;
+export default GetWorkById;

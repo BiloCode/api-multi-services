@@ -21,6 +21,8 @@ import getWorkListByUserId from "../../controllers/Work/getWorkListByUserId";
 import joinRoom from "../../controllers/Room/joinRoom";
 import getWorkerBySpecialty from "../../controllers/Worker/app/getWorkerBySpecialty";
 import getWorkerByName from "../../controllers/Worker/app/getWorkerByName";
+import requestService from "../../controllers/Worker/app/requestService";
+import workAccept from "../../controllers/Worker/app/workAccept";
 
 const app = Router();
 
@@ -38,6 +40,8 @@ app.post('/curriculum/add', curriculumCreate);
 app.get('/user/:id', getUserById);
 app.post('/user/add', createNewUser);
 app.post('/user/list/work', getWorkListByUserId);
+app.post('/user/update/fullname', updateFullName);
+app.post('/user/update/description', updateDescription);
 app.post('/user/join/room', joinRoom);
 
 app.get('/worker/find/new', getNewsWorkers);
@@ -46,8 +50,8 @@ app.get('/worker/find/specialty/:specialtyId', getWorkerBySpecialty);
 app.get('/worker/find/name/:name', getWorkerByName);
 app.post('/worker/nearest/unlimited', getNearestWorkersUnlimited);
 app.post('/worker/nearest', getNearestWorkers);
-app.post('/worker/update/fullname', updateFullName);
-app.post('/worker/update/description', updateDescription);
 app.post('/worker/list/work', getWorkListByWorkerId);
+app.post('/worker/request/service', requestService);
+app.post('/worker/service/accept', workAccept);
 
 export default app;
