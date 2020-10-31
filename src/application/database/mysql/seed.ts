@@ -11,7 +11,6 @@ import Province from './models/Province';
 import Department from './models/Department';
 import Worker from './models/Worker';
 import Specialty from './models/Specialty';
-import WorkDetail from './models/WorkDetail';
 
 //Admin
 const admin = [
@@ -21,53 +20,117 @@ const admin = [
 
 //Department
 const deparment = [
-  { name : 'Piura' },
-  { name : 'Lima' },
-  { name : 'Pucallpa' }
+  { 
+    name : 'Lima', 
+    location : JSON.stringify({
+      latitude : -12.0621065,
+      longitude : -77.0365256
+    })
+  },
+  { 
+    name : 'Piura',
+    location : JSON.stringify({
+      latitude : -5.1949018,
+      longitude : -80.6323
+    })
+  }
 ];
 
 //Province
 const province = [
-  { departmentId : 1, name : 'Province Piura 1' },
-  { departmentId : 1, name : 'Province Piura 2' },
-  { departmentId : 2, name : 'Rimac' },
-  { departmentId : 2, name : 'San Juan de Lurigancho' },
-  { departmentId : 3, name : 'Province Pucallpa 1' },
-  { departmentId : 3, name : 'Province Pucallpa 2' }
+  { 
+    departmentId : 1,
+    name : 'Lima',
+    location : deparment.find(v => v.name === 'Lima')
+  },
+  { 
+    departmentId : 1,
+    name : 'Huaral',
+    location : JSON.stringify({
+      latitude : -11.495,
+      longitude : -77.20778
+    })
+  },
+  { 
+    departmentId : 2,
+    name : 'Paita',
+    location : JSON.stringify({
+      latitude : -5.08917,
+      longitude : -81.11444
+    })
+  },
+  { 
+    departmentId : 2,
+    name : 'Huancabamba',
+    location : JSON.stringify({
+      latitude : -5.23889,
+      longitude : -79.4506
+    })
+  }
 ];
 
 //District
 const district = [
-  { provinceId : 1 , name : 'Rimac' },
-  { provinceId : 1 , name : 'Pachacutet' },
-  { provinceId : 2 , name : 'District 3' },
-  { provinceId : 2 , name : 'District 4' },
-  { provinceId : 3 , name : 'District 5' },
-  { provinceId : 3 , name : 'District 6' }
+  { 
+    provinceId : 1,
+    name : 'Rimac' 
+  },
+  { 
+    provinceId : 1,
+    name : 'Ancon' 
+  },
+  {
+    provinceId : 1,
+    name : 'Pachacutec'
+  },
+  { 
+    provinceId : 2,
+    name : 'Chancay' 
+  },
+  { 
+    provinceId : 2,
+    name : 'Sumbilca' 
+  },
+  {
+    provinceId : 3,
+    name : 'La Huaca'
+  },
+  {
+    provinceId : 3,
+    name : 'Amotape'
+  },
+  {
+    provinceId : 4,
+    name : 'El Carmen de la Frontera'
+  },
+  {
+    provinceId : 4,
+    name : 'Huarmaca'
+  }
 ];
 
 //User
 const user = [
-  { fullName : 'Billy paredes' , username : 'billy' , password : '123456' , districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
-  { fullName : 'Imanol Rojas' , username : 'imanol' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
-  { fullName : 'Ttito chavez' , username : 'ttito' , password : '123456', districtId : 3 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
-  { fullName : 'Cezar jefe' , username : 'cezar' , password : '123456', districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
-  { fullName : 'Jhony Vega' , username : 'desconocido' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'}
+  { fullName : 'Billy Paredes Aycho' , username : 'billy' , password : '123456' , districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Imanol Rojas' , username : 'imanol' , password : '123456', districtId : 3 , description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Ttito chavez' , username : 'ttito' , password : '123456', districtId : 2, description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Cezar jefe' , username : 'cezar' , password : '123456', districtId : 2, description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'}
 ];
 
 //Specialties
+const image = 'https://cdn.icon-icons.com/icons2/1993/PNG/512/direction_gps_location_map_maps_navigation_pin_icon_123198.png';
 const specialty = [
-  { name : 'Gasfitero' , image : 'https://cdn.icon-icons.com/icons2/1993/PNG/512/direction_gps_location_map_maps_navigation_pin_icon_123198.png' },
-  { name : 'Programador' , image : 'https://cdn.icon-icons.com/icons2/1993/PNG/512/direction_gps_location_map_maps_navigation_pin_icon_123198.png' },
-  { name : 'Albañil' , image : 'https://cdn.icon-icons.com/icons2/1993/PNG/512/direction_gps_location_map_maps_navigation_pin_icon_123198.png' },
-  { name : 'Electricista' , image : 'https://cdn.icon-icons.com/icons2/1993/PNG/512/direction_gps_location_map_maps_navigation_pin_icon_123198.png' },
-  { name : 'Desarrollador Grafico' , image : 'https://cdn.icon-icons.com/icons2/1993/PNG/512/direction_gps_location_map_maps_navigation_pin_icon_123198.png' },
+  { name : 'Gasfitero' , image },
+  { name : 'Programador' , image },
+  { name : 'Maestro de Construcción' , image },
+  { name : 'Electricista' , image },
+  { name : 'Desarrollador Grafico' , image },
 ];
 
 //Worker
 const worker = [
-  { userId : 1 , specialtyId : 1 , basePrice : 15 , backgroundImage : 'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg' },
-  { userId : 2 , specialtyId : 3 , basePrice : 15 , backgroundImage : 'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg' }
+  { userId : 1 , specialtyId : 2 , basePrice : 15 },
+  { userId : 2 , specialtyId : 1, basePrice : 15 }
 ];
 
 (async () => {
@@ -85,5 +148,4 @@ const worker = [
   } catch(e){ 
     console.log(e) 
   }
-
 })();
