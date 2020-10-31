@@ -7,7 +7,7 @@ import User from '../application/database/mysql/models/User';
 import WorkDetail from "../application/database/mysql/models/WorkDetail";
 
 const query = {
-  attributes : [ 'id','availability','basePrice','location'],
+  attributes : [ 'id','availability','basePrice'],
   include : [
     {
       model : User,
@@ -55,10 +55,11 @@ export const getWorkerById = async (req : Request , res : Response) => {
 }
 
 export const workerCreate = async (req : Request, res : Response) => {
-  const { userId , specialtyId , location , basePrice } = req.body;
+  const { id, userId , specialtyId , location , basePrice } = req.body;
 
   try{
     const worker = await Worker.create({ 
+      id,
       userId,
       specialtyId,
       basePrice,
@@ -99,7 +100,7 @@ export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
 
   try{
     const workers = await Worker.findAll({
-      attributes:['id','availability','basePrice','location'],
+      attributes:['id','availability','basePrice'],
       include : [
         {
           model : User,

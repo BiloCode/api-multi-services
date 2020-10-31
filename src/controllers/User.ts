@@ -18,7 +18,7 @@ export const getUsers = async (req : Request, res : Response) => {
         }
       ],
     });
-
+    
     res.status(200).json(users);
   }catch(e){
     console.log(e);
@@ -28,7 +28,7 @@ export const getUsers = async (req : Request, res : Response) => {
 
 export const getUserByName = async (req:Request,res:Response)=>{
   try {
-    const { name } = req.body;
+    const { fullname } = req.body;
     const users = await User.findAll({
       attributes : ['id','fullname','username','password','description','profileImage','createdAt'],
       include : [
@@ -37,7 +37,7 @@ export const getUserByName = async (req:Request,res:Response)=>{
           attributes : ['name']
         }
       ],
-      where : { name }
+      where : { fullname }
     })
     res.status(200).json(users);
 

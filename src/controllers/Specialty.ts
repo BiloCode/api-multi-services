@@ -26,7 +26,6 @@ export const specialtyUpdate = async(req:Request,res:Response)=>{
   }catch(e){
     res.status(500).json({message:e.message})
   }
-
 }
 
 export const specialtyDelete = async(req:Request,res:Response)=>{

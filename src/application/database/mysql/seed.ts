@@ -49,7 +49,7 @@ const district = [
 //User
 const user = [
   { fullName : 'Billy paredes' , username : 'billy' , password : '123456' , districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
-  { fullName : 'Imanol mayo' , username : 'imanol' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
+  { fullName : 'Imanol Rojas' , username : 'imanol' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
   { fullName : 'Ttito chavez' , username : 'ttito' , password : '123456', districtId : 3 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
   { fullName : 'Cezar jefe' , username : 'cezar' , password : '123456', districtId : 1 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'},
   { fullName : 'Jhony Vega' , username : 'desconocido' , password : '123456', districtId : 2 ,description:'Usuario comun' , profileImage:'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg'}
