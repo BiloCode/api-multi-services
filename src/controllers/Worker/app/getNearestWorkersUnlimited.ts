@@ -3,9 +3,9 @@ import GetNearestWorker from "../../../application/features/Worker/GetNearestWor
 
 export default async (req : Request, res : Response) => {
   try {
-    const { districtId } = req.body;
+    const { provinceId } = req.body;
 
-    const workers = await new GetNearestWorker().exec(districtId);
+    const workers = await new GetNearestWorker().exec(provinceId);
 
     res.status(200).json({ workers });
   } catch (e) {

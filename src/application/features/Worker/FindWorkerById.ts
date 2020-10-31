@@ -5,7 +5,7 @@ import User from "../../database/mysql/models/User";
 import Worker from "../../database/mysql/models/Worker";
 
 class FindWorkerById {
-  public find = async (id : number) => {
+  public exec = async (id : number) => {
     try {
       const worker = await Worker.findByPk(id, {
         include : [
@@ -36,6 +36,7 @@ class FindWorkerById {
       return worker;
     }catch(e) {
       console.log(e);
+      return null;
     }
   }
 }

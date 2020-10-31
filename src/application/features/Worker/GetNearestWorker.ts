@@ -8,7 +8,7 @@ import Worker from "../../database/mysql/models/Worker";
 class GetNearestWorker {
 
   //Search for district
-  public exec = async (districtId : number, limit? : number) => {
+  public exec = async (provinceId : number, limit? : number) => {
     try{ 
       const WorkerRequestConfig : FindOptions = {
         include : [
@@ -22,12 +22,14 @@ class GetNearestWorker {
                 include : [
                   {
                     model : Province,
-                    attributes : ['name','location']
+                    attributes : ['name','location'],
+                    where : {
+                      id : provinceId
+                    }
                   }
                 ]
               }
-            ],
-            where : { districtId }
+            ]
           },
           {
             model : Specialty,
