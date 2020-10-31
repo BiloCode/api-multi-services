@@ -27,6 +27,7 @@ import getChatRoomsByUser from "../../controllers/Room/getChatRoomsByUser";
 import getChatRoomsByUserWorker from "../../controllers/Room/getChatRoomsByUserWorker";
 import getWorkStateWithUser from "../../controllers/Worker/app/getWorkStateWithUser";
 import rejectWork from "../../controllers/Worker/app/rejectWork";
+import workCompleted from "../../controllers/Worker/app/workCompleted";
 
 const app = Router();
 
@@ -48,6 +49,7 @@ app.post('/user/update/fullname', updateFullName);
 app.post('/user/update/description', updateDescription);
 app.post('/user/join/room', joinRoom);
 app.post('/user/get/rooms', getChatRoomsByUser);
+app.post('/user/work/completed', workCompleted);
 
 app.get('/worker/find/new', getNewsWorkers);
 app.get('/worker/find/id/:id', getWorkerById);

@@ -4,16 +4,16 @@ import { WorkDetailState } from "../../types";
 class UpdateWorkDetailState {
   public exec = async (workId : number, state : WorkDetailState) => {
     try {
-      const isUpdate = await WorkDetail.update({ state },{
+      const isUpdated = await WorkDetail.update({ state },{
         where : {
           id : workId
         }
       });
 
-      return isUpdate ? true : false;
+      return isUpdated.length > 0;
     }catch(e){
       console.log(e);
-      return false;
+      return null;
     }
   }
 }
