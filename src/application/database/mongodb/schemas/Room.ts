@@ -1,4 +1,5 @@
 import { model, Schema , Types } from "mongoose";
+import { IRoom } from "../../../interfaces/schemas/Room";
 
 const RoomSchema = new Schema({
   userWorkerId : {
@@ -21,4 +22,4 @@ const RoomSchema = new Schema({
   }
 });
 
-export default model('room',RoomSchema);
+export default model<IRoom>('room',RoomSchema);

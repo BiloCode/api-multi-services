@@ -15,7 +15,7 @@ export default async function (req : Request, res : Response) {
       });
 
       if(token) {
-        const worker = await new FindWorkerById().find(user.id);
+        const worker = await new FindWorkerById().exec(user.id);
 
         if(!worker)
           res.status(200).json({ token , user });

@@ -70,18 +70,6 @@ const worker = [
   { userId : 2 , specialtyId : 3 , basePrice : 15 }
 ];
 
-//Work Detail
-const workDetail = [
-  {
-    userId : 3,
-    workerId : 1,
-    state : 'pendient',
-    price : 15.56,
-    title : 'Atencion al Cliente',
-    description : 'Necesito atender una pequeña necesidad aqui en mi hogar.'
-  }
-];
-
 (async () => {
 
   try{
@@ -94,7 +82,6 @@ const workDetail = [
     await User.bulkCreate(user);
     await Specialty.bulkCreate(specialty);
     await Worker.bulkCreate(worker);
-    await WorkDetail.bulkCreate(workDetail);
   } catch(e){ 
     console.log(e) 
   }

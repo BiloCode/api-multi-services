@@ -23,7 +23,7 @@ export const Handler = async (req : Request, res : Response) => {
 
     if(!isExpired) {
       const tokenDecode = new TokenDecode().exec(tokenFormat);  
-      const worker = await new FindWorkerById().find(tokenDecode.data.id);
+      const worker = await new FindWorkerById().exec(tokenDecode.data.id);
 
       if(!worker){
         const user = await new FindUserById().exec(tokenDecode.data.id);

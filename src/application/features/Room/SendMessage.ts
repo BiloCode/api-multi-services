@@ -1,7 +1,7 @@
 import Room from "../../database/mongodb/schemas/Room";
 
 class SendMessage {
-  public exec = async (roomId : string, messageId : string) : Promise<boolean> => {
+  public exec = async (roomId : string, messageId) : Promise<boolean> => {
     try{
       const updateRoom = await Room.updateOne(
         { _id : roomId },

@@ -1,4 +1,5 @@
 import { model, Schema } from "mongoose";
+import { IMessage } from "../../../interfaces/schemas/Message";
 
 const MessageSchema = new Schema({
   message : {
@@ -15,4 +16,4 @@ const MessageSchema = new Schema({
   }
 });
 
-export default model('message',MessageSchema);
+export default model<IMessage>('message',MessageSchema);
