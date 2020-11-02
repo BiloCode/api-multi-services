@@ -3,14 +3,15 @@ import CurriculumCreate from "../../../application/features/Curriculum/Curriculu
 
 export default async function (req : Request, res : Response) {
   try {
-    const { userId , specialtyId , title , content } = req.body;
+    const { userId , specialtyId , title , content , email, phone } = req.body;
   
-
     const send = await new CurriculumCreate().run({
       userId,
       specialtyId,
       title,
-      content
+      content,
+      email,
+      phone
     });
 
     res.status(200).json({ send });
