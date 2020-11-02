@@ -40,3 +40,11 @@ Content-Type: application/json
 {
   "workerId" : 1
 }
+
+#####
+POST http://localhost:3000/app/worker/find/new
+Content-Type: application/json
+
+{
+  "provinceId" : 2
+}

@@ -1,3 +1,4 @@
+import { Op } from 'sequelize';
 import District from "../../database/mysql/models/District";
 import Province from "../../database/mysql/models/Province";
 import Specialty from "../../database/mysql/models/Specialty";
@@ -15,7 +16,7 @@ class GetNewsWorkers {
             include : [
               {
                 model : District,
-                attributes : ['name','location'],
+                attributes : ['name','location','provinceId'],
                 include : [
                   {
                     model : Province,
@@ -37,7 +38,13 @@ class GetNewsWorkers {
         limit : 8,
         order: [
           ['createdAt','ASC']
-        ]
+        ],
+/*         where : {
+          provinceId : {
+            [Op.col] : 'user.district.provinceId',
+            [Op.eq] : provinceId
+          }
+        } */
       });
 
       return workers;
