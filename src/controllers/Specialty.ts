@@ -6,7 +6,8 @@ import Specialty from '../application/database/mysql/models/Specialty';
 
 export const specialtyCreate = async(req:Request,res:Response)=>{
   
-  try { 
+  try {
+    
     const { name,image } = req.body;
     const specialty = await Specialty.create({
       name,image,
