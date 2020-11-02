@@ -31,3 +31,12 @@ Content-Type: application/json
 {
   "workId" : 1
 }
+
+#####
+
+POST http://localhost:3000/app/worker/list/work
+Content-Type: application/json
+
+{
+  "workerId" : 1
+}

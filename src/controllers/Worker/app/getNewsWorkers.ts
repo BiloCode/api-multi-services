@@ -3,7 +3,8 @@ import GetNewsWorkers from "../../../application/features/Worker/GetNewsWorker";
 
 export default async function(req : Request, res : Response) {
   try {
-    const workers = await new GetNewsWorkers().run();
+    const { provinceId } = req.body;
+    const workers = await new GetNewsWorkers().run(provinceId);
     res.status(200).json({ workers })
   }catch(e){
     console.log(e);

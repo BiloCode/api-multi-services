@@ -41,7 +41,7 @@ const province = [
   { 
     departmentId : 1,
     name : 'Lima',
-    location : deparment.find(v => v.name === 'Lima')
+    location : deparment.find(v => v.name === 'Lima')?.location
   },
   { 
     departmentId : 1,

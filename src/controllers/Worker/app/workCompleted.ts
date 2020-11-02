@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import GetWorkById from "../../../application/features/WorkDetail/GetWorkById";
 import WorkCompleted from "../../../application/features/WorkDetail/WorkCompleted";
 
 export default async (req : Request, res : Response) => {

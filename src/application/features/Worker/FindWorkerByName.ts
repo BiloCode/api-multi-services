@@ -7,7 +7,7 @@ import User from "../../database/mysql/models/User";
 import Worker from "../../database/mysql/models/Worker";
 
 class FindWorkerByName {
-  public exec = async (name : string) => {
+  public exec = async (name : string, provinceId : number) => {
     try {
       const workers = await Worker.findAll({
         include : [
@@ -21,7 +21,10 @@ class FindWorkerByName {
                 include : [
                   {
                     model : Province,
-                    attributes : ['name','location']
+                    attributes : ['name','location'],
+                    where : {
+                      id : provinceId
+                    }
                   }
                 ]
               }

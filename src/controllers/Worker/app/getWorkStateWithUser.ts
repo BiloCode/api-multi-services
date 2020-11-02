@@ -1,5 +1,5 @@
 import { Response , Request } from "express";
-import WorkStateWithUser from "../../../application/features/Worker/WorkStateWithUser";
+import WorkStateWithUser from "../../../application/features/WorkDetail/WorkStateWithUser";
 
 export default async (req : Request , res : Response) => {
   try{

@@ -3,8 +3,8 @@ import FindWorkerByName from "../../../application/features/Worker/FindWorkerByN
 
 export default async (req : Request, res : Response) => {
   try {
-    const { name } = req.params;
-    const workers = await new FindWorkerByName().exec(name);
+    const { name , provinceId } = req.body;
+    const workers = await new FindWorkerByName().exec(name, provinceId);
 
     res.status(200).json({ workers });
   }catch(e) {
