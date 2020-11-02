@@ -46,5 +46,33 @@ POST http://localhost:3000/app/worker/find/new
 Content-Type: application/json
 
 {
-  "provinceId" : 2
+  "provinceId" : 1
+}
+
+
+#####
+POST http://localhost:3000/app/worker/nearest/unlimited
+Content-Type: application/json
+
+{
+  "provinceId" : 1
+}
+
+
+#####
+POST http://localhost:3000/app/worker/find/name
+Content-Type: application/json
+
+{
+  "provinceId" : 1,
+  "name" : "bi"
+}
+
+#####
+POST http://localhost:3000/app/worker/find/specialty
+Content-Type: application/json
+
+{
+  "specialtyId" : 1,
+  "provinceId" : 1
 }

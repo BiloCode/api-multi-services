@@ -3,8 +3,10 @@ import { Request,Response } from 'express';
 //Models
 import Specialty from '../application/database/mysql/models/Specialty';
 
+
 export const specialtyCreate = async(req:Request,res:Response)=>{
-  try {
+  
+  try { 
     const { name,image } = req.body;
     const specialty = await Specialty.create({
       name,image,
@@ -17,6 +19,7 @@ export const specialtyCreate = async(req:Request,res:Response)=>{
 
 export const specialtyUpdate = async(req:Request,res:Response)=>{
   try {
+  
     const { id , name , image } = req.body;
     const specialty = await Specialty.update({
       name,image,

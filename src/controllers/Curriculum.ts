@@ -8,11 +8,11 @@ import Specialty from '../application/database/mysql/models/Specialty';
 export const getCurriculums = async (req:Request,res:Response)=>{
   try {
     const curriculum = await Curriculum.findAll({
-      attributes : ['title','content','state','createdAt'],
+      attributes : ['id','title','content','state','createdAt'],
       include : [
         {
           model : User,
-          attributes : ['name','lastName']
+          attributes : ['fullname','profileImage']
         },
         {
           model : Specialty,
@@ -31,11 +31,11 @@ export const curriculumFilterBySpecialty = async(req:Request,res:Response)=>{
   try {
     const { specialty } = req.body;
     const curriculum = await Curriculum.findAll({
-      attributes:['title','content','state','createdAt'],
+      attributes:['id','title','content','state','createdAt'],
       include : [
         {
           model : User,
-          attributes:['name','lastName']
+          attributes:['fullname']
         },
         {
           model : Specialty,
@@ -52,38 +52,28 @@ export const curriculumFilterBySpecialty = async(req:Request,res:Response)=>{
   }
 }
 
-// interface Filter {
-//   query:object
-//   filter(table:string,campo:string,value:string):void
-// }
+export const updateStateCurriculum = async(req:Request,res:Response) => {
+  try {
+    const { id , state } = req.body;
+    
+    
+    const newCurriculum = Curriculum.update({
+      state
+    },{where:{ id }})
 
-// class FilterCurriculum implements Filter {
-//   private query = {
-//     attributes : ['title','content','state','createdAt'],
-//     include : [
-//       {
-//         model : User,
-//         attributes : ['name','lastName'],
-//         where : {}
-//       },
-//       {
-//         model : Specialty,
-//         attributes : ['name'],
-//         where : {}
-//       }
-//     ],
-//     where : {}
-//   }
-//   public filter = (table:string,campo:string,value:string) => {
-//     if ( table === 'user' ){
-//       this.query.include[0].where[campo] = value  
-//     } else if ( table === 'specialty' ) {
-//       this.query.include[0].where[campo] = value 
-//     } else if ( table === 'curriculum' ) {
-//       this.query.where[campo] = value
-//     }
-//   }
-//   public getQuery = () => this.query;
-// }
+    res.status(200).json(newCurriculum);
 
-// const filter = new FilterCurriculum();
+  }catch(e){
+    res.status(500).json({message:e.message});
+  }
+}
+
+export const deleteCurriculum = async(req:Request,res:Response) => {
+  const { id } = req.body;
+  try{
+    const curriculum = Curriculum.destroy({where:{id}});
+    res.status(200).json(curriculum);
+  }catch(e){
+    res.status(500).json({message:e.message});
+  }
+}
