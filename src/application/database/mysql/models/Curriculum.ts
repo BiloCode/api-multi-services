@@ -13,6 +13,14 @@ const Curriculum = sequelize.define<Fields>('curriculum', {
     type : DataTypes.STRING,
     allowNull : false
   },
+  phone : {
+    type : DataTypes.CHAR,
+    allowNull : false
+  },
+  email : {
+    type : DataTypes.STRING,
+    allowNull : false
+  },
   state : {
     type : DataTypes.STRING,
     defaultValue : 'wait'

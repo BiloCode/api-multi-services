@@ -8,6 +8,7 @@ export const startServer = server => {
 
     socket.on('join-room', ({ roomId }) => {
       socket.join(roomId);
+      io.sockets.in(roomId).emit('joined-room-success');
     });
 
     socket.on('send-message', async ({ userId , message , roomId }) => {

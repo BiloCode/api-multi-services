@@ -1,6 +1,8 @@
 export interface CurriculumModelAdd {
   title : string;
   content : string;
+  phone : string;
+  email : string;
   userId : number;
   specialtyId : number;
 }

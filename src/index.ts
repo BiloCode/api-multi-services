@@ -24,7 +24,7 @@ import './application/database/mysql/associations';
 //Configuration
 const app = express();
 const server = http.createServer(app);
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(compression());
 app.use(cors());

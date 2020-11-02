@@ -27,6 +27,7 @@ import getChatRoomsByUser from "../../controllers/Room/getChatRoomsByUser";
 import getChatRoomsByUserWorker from "../../controllers/Room/getChatRoomsByUserWorker";
 import getWorkStateWithUser from "../../controllers/Worker/app/getWorkStateWithUser";
 import rejectWork from "../../controllers/Worker/app/rejectWork";
+import workCompleted from "../../controllers/Worker/app/workCompleted";
 
 const app = Router();
 
@@ -43,16 +44,17 @@ app.post('/curriculum/add', curriculumCreate);
 
 app.get('/user/:id', getUserById);
 app.post('/user/add', createNewUser);
-app.post('/user/list/work', getWorkListByUserId);
+//app.post('/user/list/work', getWorkListByUserId);
 app.post('/user/update/fullname', updateFullName);
 app.post('/user/update/description', updateDescription);
 app.post('/user/join/room', joinRoom);
 app.post('/user/get/rooms', getChatRoomsByUser);
+app.post('/user/work/completed', workCompleted);
 
-app.get('/worker/find/new', getNewsWorkers);
+app.post('/worker/find/new', getNewsWorkers);
 app.get('/worker/find/id/:id', getWorkerById);
-app.get('/worker/find/specialty/:specialtyId', getWorkerBySpecialty);
-app.get('/worker/find/name/:name', getWorkerByName);
+app.post('/worker/find/specialty', getWorkerBySpecialty);
+app.post('/worker/find/name', getWorkerByName);
 app.post('/worker/detail/work/check', getWorkStateWithUser);
 app.post('/worker/nearest/unlimited', getNearestWorkersUnlimited);
 app.post('/worker/nearest', getNearestWorkers);
