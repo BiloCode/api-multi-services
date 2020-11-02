@@ -1,15 +1,18 @@
 import { Router } from 'express';
 
 import { getUsers , userDelete , getUserByName} from '../../controllers/User';
-import { getCurriculums , curriculumFilterBySpecialty } from '../../controllers/Curriculum';
+import { getCurriculums , curriculumFilterBySpecialty , updateStateCurriculum , deleteCurriculum} from '../../controllers/Curriculum';
 import { specialtyCreate , specialtyDelete , specialtyUpdate } from '../../controllers/Specialty';
 import { getWorkers, getWorkersBySpecialty, getWorkerById, workerCreate, workerUpdate } from '../../controllers/Worker';
 import checkAdminLogin from '../../controllers/Auth/panel/checkAdminLogin';
 import checkToken from '../../controllers/Auth/panel/checkToken';
 import getSpecialtyAll from '../../controllers/Specialty/getSpecialtyAll';
 import curriculumCreate from '../../controllers/Curriculum/app/curriculumCreate';
+import config from '../../Multer';
+
 
 const app = Router();
+
 
 //Auth
 app.post('/auth/login', checkAdminLogin);
@@ -35,12 +38,13 @@ app.post('/worker/update',workerUpdate);
 app.get('/curriculum', getCurriculums);
 app.post('/curriculum/filter', curriculumFilterBySpecialty);
 app.post('/curriculum/create', curriculumCreate);
+app.post('/curriculum/updateState',updateStateCurriculum);
+app.post('/curriculum/delete',deleteCurriculum)
 
 // Specialty
 app.get('/specialty', getSpecialtyAll);
-app.post('/specialty/create',specialtyCreate);
+app.post('/specialty/create',config.specialty,specialtyCreate);
 app.post('/specialty/update',specialtyUpdate);
 app.post('/specialty/delete',specialtyDelete);
-
 
 export default app;

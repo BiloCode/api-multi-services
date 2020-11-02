@@ -3,7 +3,7 @@ dotenv.config();
 
 //Imports
 import express from 'express';
-import http from 'http';
+import http, { request } from 'http';
 import cors from 'cors';
 import compression from 'compression';
 import * as socket from './socket';
@@ -16,6 +16,7 @@ import routerPanel from './router/panel';
 import './application/database/mongodb';
 import sequelize from './application/database/mysql';
 import './application/database/mysql/associations';
+
 
 //Configuration
 const app = express();

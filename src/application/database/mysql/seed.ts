@@ -12,6 +12,7 @@ import Department from './models/Department';
 import Worker from './models/Worker';
 import Specialty from './models/Specialty';
 import WorkDetail from './models/WorkDetail';
+import Curriculum from './models/Curriculum';
 
 //Admin
 const admin = [
@@ -70,6 +71,14 @@ const worker = [
   { userId : 2 , specialtyId : 3 , basePrice : 15 , backgroundImage : 'https://as.com/meristation/imagenes/2020/09/28/noticias/1601292392_502173_1601292453_noticia_normal.jpg' }
 ];
 
+//Curriculum 
+const curriculum = [
+  { userId : 1 , specialtyId: 1 , title : 'Peticion para trabajo 1', content : 'Peticion para trabajo como desarrollador frontend',state:'in-wait' },
+  { userId : 2 , specialtyId: 2 , title : 'Peticion para trabajo 2', content : 'Peticion para trabajo como desarrollador backend',state:'in-wait' },
+  { userId : 3 , specialtyId: 3 , title : 'Peticion para trabajo 3', content : 'Peticion para trabajo como diseñador web',state:'in-wait' },
+];
+
+
 (async () => {
 
   try{
@@ -82,6 +91,7 @@ const worker = [
     await User.bulkCreate(user);
     await Specialty.bulkCreate(specialty);
     await Worker.bulkCreate(worker);
+    await Curriculum.bulkCreate(curriculum);
   } catch(e){ 
     console.log(e) 
   }
