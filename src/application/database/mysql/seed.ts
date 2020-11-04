@@ -11,6 +11,7 @@ import Province from './models/Province';
 import Department from './models/Department';
 import Worker from './models/Worker';
 import Specialty from './models/Specialty';
+import Curriculum from './models/Curriculum';
 
 //Admin
 const admin = [
@@ -133,6 +134,11 @@ const worker = [
   { userId : 2 , specialtyId : 1, basePrice : 15 }
 ];
 
+const curriculum = [
+  { userId : 1 , specialtyId : 1 , title : 'Peticion para trabajo 1' , content : 'Quisiera solicitar para trabajar como frontend',phone : '999888777',email : 'usuario01@gmail.com',state:'in-wait'},
+  { userId : 2 , specialtyId : 2 , title : 'Peticion para trabajo 2' , content : 'Quisiera solicitar para trabajar como backend',phone : '555444333',email : 'usuario02@gmail.com',state:'in-wait'},
+];
+
 (async () => {
 
   try{
@@ -145,6 +151,7 @@ const worker = [
     await User.bulkCreate(user);
     await Specialty.bulkCreate(specialty);
     await Worker.bulkCreate(worker);
+    await Curriculum.bulkCreate(curriculum);
   } catch(e){ 
     console.log(e) 
   }

@@ -8,7 +8,7 @@ import checkAdminLogin from '../../controllers/Auth/panel/checkAdminLogin';
 import checkToken from '../../controllers/Auth/panel/checkToken';
 import getSpecialtyAll from '../../controllers/Specialty/getSpecialtyAll';
 import curriculumCreate from '../../controllers/Curriculum/app/curriculumCreate';
-import config from '../../Multer';
+import { specialtyConfig } from '../../Multer';
 
 
 const app = Router();
@@ -43,7 +43,7 @@ app.post('/curriculum/delete',deleteCurriculum)
 
 // Specialty
 app.get('/specialty', getSpecialtyAll);
-app.post('/specialty/create',config.specialty,specialtyCreate);
+app.post('/specialty/create',specialtyConfig.single('image'),specialtyCreate);
 app.post('/specialty/update',specialtyUpdate);
 app.post('/specialty/delete',specialtyDelete);
 

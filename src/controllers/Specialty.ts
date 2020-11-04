@@ -1,16 +1,26 @@
 import { Request,Response } from 'express';
+import routeFiles from '../configs';
 
 //Models
 import Specialty from '../application/database/mysql/models/Specialty';
 
 
 export const specialtyCreate = async(req:Request,res:Response)=>{
-  
+
   try {
+    const filename = req.file.originalname;
+    const { name } = req.body;
     
-    const { name,image } = req.body;
+    const routeImage = `${routeFiles.specialty}${filename}`
+
+    console.log("--------------------------")
+    console.log(name);
+    console.log(routeImage);
+    console.log("--------------------------")
+    
     const specialty = await Specialty.create({
-      name,image,
+      name, 
+      image: routeImage,
     })
     res.status(200).json(specialty);
   }catch(e){
