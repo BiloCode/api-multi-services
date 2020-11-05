@@ -132,3 +132,12 @@ export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
     res.status(500).json({ message : e.message });
   }
 }
+
+export const deleteWorker = (req:Request,res:Response) => {
+  try{
+    const { id } = req.body;
+    let worker = Worker.destroy({where:{id}})
+  }catch(e){
+    res.status(500).json({message:e.message});
+  }
+}

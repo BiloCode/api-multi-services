@@ -8,6 +8,8 @@ import cors from 'cors';
 import compression from 'compression';
 import * as socket from './socket';
 import path from 'path';
+import { specialtyConfig } from './Multer';
+
 //Router
 import routerApp from './router/app';
 import routerPanel from './router/panel';
@@ -30,7 +32,7 @@ app.use(express.urlencoded({ extended : true }));
 
 //Routes
 app.use('/app',routerApp);
-app.use('/panel', routerPanel);
+app.use('/panel', specialtyConfig.single('image') ,routerPanel);
 
 //STATIC ROUTES 
 app.use(express.static(path.join(__dirname,'Files')));

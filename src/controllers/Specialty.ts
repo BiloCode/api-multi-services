@@ -10,17 +10,10 @@ export const specialtyCreate = async(req:Request,res:Response)=>{
   try {
     const filename = req.file.originalname;
     const { name } = req.body;
-    
-    const routeImage = `${routeFiles.specialty}${filename}`
+    const image = `${routeFiles.specialty}${filename}`
 
-    console.log("--------------------------")
-    console.log(name);
-    console.log(routeImage);
-    console.log("--------------------------")
-    
     const specialty = await Specialty.create({
-      name, 
-      image: routeImage,
+      name, image,
     })
     res.status(200).json(specialty);
   }catch(e){
@@ -31,7 +24,10 @@ export const specialtyCreate = async(req:Request,res:Response)=>{
 export const specialtyUpdate = async(req:Request,res:Response)=>{
   try {
   
-    const { id , name , image } = req.body;
+    const { id , name } = req.body;
+    let filename = req.file.originalname;
+    let image = `${routeFiles.specialty}${filename}`;
+
     const specialty = await Specialty.update({
       name,image,
     },{ where : { id } })

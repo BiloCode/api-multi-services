@@ -135,8 +135,13 @@ const worker = [
 ];
 
 const curriculum = [
-  { userId : 1 , specialtyId : 1 , title : 'Peticion para trabajo 1' , content : 'Quisiera solicitar para trabajar como frontend',phone : '999888777',email : 'usuario01@gmail.com',state:'in-wait'},
-  { userId : 2 , specialtyId : 2 , title : 'Peticion para trabajo 2' , content : 'Quisiera solicitar para trabajar como backend',phone : '555444333',email : 'usuario02@gmail.com',state:'in-wait'},
+  { 
+    userId : 1 , specialtyId : 1 , title : 'Peticion para trabajo 1' , content : 'Quisiera solicitar para trabajar como frontend',
+    phone : '999888777',email : 'usuario01@gmail.com',state:'in-wait'
+  },
+  { userId : 2 , specialtyId : 2 , title : 'Peticion para trabajo 2' , content : 'Quisiera solicitar para trabajar como backend',
+    phone : '555444333',email : 'usuario02@gmail.com',state:'in-wait'
+  },
 ];
 
 (async () => {

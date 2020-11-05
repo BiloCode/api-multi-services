@@ -8,7 +8,7 @@ import Specialty from '../application/database/mysql/models/Specialty';
 export const getCurriculums = async (req:Request,res:Response)=>{
   try {
     const curriculum = await Curriculum.findAll({
-      attributes : ['id','title','content','state','createdAt'],
+      attributes : ['id','title','content','state','createdAt','phone','email'],
       include : [
         {
           model : User,
