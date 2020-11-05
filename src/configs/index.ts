@@ -1,5 +1,5 @@
 const routeFiles = {
-  specialty : 'http://localhost:5000/images/specialty/',
-  user : 'http://localhost:5000/images/user/'
+  specialty : 'https://app-multi-services.herokuapp.com/images/specialty/',
+  user : 'https://app-multi-services.herokuapp.com/images/user/'
 }
 export default routeFiles;
