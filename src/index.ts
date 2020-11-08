@@ -3,7 +3,7 @@ dotenv.config();
 
 //Imports
 import express from 'express';
-import http, { request } from 'http';
+import http from 'http';
 import cors from 'cors';
 import compression from 'compression';
 import * as socket from './socket';
@@ -23,7 +23,7 @@ import './application/database/mysql/associations';
 //Configuration
 const app = express();
 const server = http.createServer(app);
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 app.use(compression());
 app.use(cors());
@@ -34,7 +34,7 @@ app.use(express.urlencoded({ extended : true }));
 app.use('/app',routerApp);
 app.use('/panel', specialtyConfig.single('image') ,routerPanel);
 
-//STATIC ROUTES 
+//Static Routes
 app.use(express.static(path.join(__dirname,'Files')));
 
 //Port
