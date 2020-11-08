@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
-import { getUsers , userDelete , getUserByName} from '../../controllers/User';
+import { getUsers , userDelete , filterUserByName , filterUserByDistrict } from '../../controllers/User';
 import { getCurriculums , curriculumFilterBySpecialty , updateStateCurriculum , deleteCurriculum} from '../../controllers/Curriculum';
 import { specialtyCreate , specialtyDelete , specialtyUpdate } from '../../controllers/Specialty';
-import { getWorkers, getWorkersBySpecialty, getWorkerById, workerCreate, workerUpdate, deleteWorker } from '../../controllers/Worker';
+import { getWorkers, getWorkersBySpecialty, getWorkerById, workerCreate, workerUpdate, deleteWorker , getWorkerByName } from '../../controllers/Worker';
 import checkAdminLogin from '../../controllers/Auth/panel/checkAdminLogin';
 import checkToken from '../../controllers/Auth/panel/checkToken';
 import getSpecialtyAll from '../../controllers/Specialty/getSpecialtyAll';
@@ -19,11 +19,13 @@ app.post('/auth/token/check', checkToken);
 //Users
 app.get('/user', getUsers);
 app.post('/user/delete', userDelete);
-app.post('/user/filter',getUserByName);
+app.post('/user/filterByName',filterUserByName);
+app.post('/user/filterByDistrict',filterUserByDistrict);
 
 //Workers
 app.get('/worker',getWorkers);
-app.post('/worker/filter',getWorkersBySpecialty);
+app.post('/worker/filterBySpecialty',getWorkersBySpecialty);
+app.post('/worker/filterByName',getWorkerByName)
 app.get('/worker/:id', getWorkerById);
 app.post('/worker/add', workerCreate);
 app.post('/worker/update',workerUpdate);

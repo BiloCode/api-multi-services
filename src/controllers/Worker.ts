@@ -6,6 +6,8 @@ import Specialty from '../application/database/mysql/models/Specialty';
 import User from '../application/database/mysql/models/User';
 import WorkDetail from "../application/database/mysql/models/WorkDetail";
 
+import WorkerController from '../controllers/Worker/panel/workerController';
+
 const query = {
   attributes : [ 'id','availability','basePrice'],
   include : [
@@ -32,25 +34,12 @@ const query = {
 
 export const getWorkers = async (req : Request, res : Response) => {
   try {
-    const workers = await Worker.findAll(query);
+    const worker = new WorkerController();
+    const workers = await Worker.findAll(worker.queryBase);
     res.status(200).json(workers);
   }catch(e){
     console.log(e);
     res.status(500).json({ message : e.message });
-  }
-}
-
-export const getWorkerById = async (req : Request , res : Response) => {
-  const { id } = req.params;
-
-  try{
-    const workerData = await Worker.findByPk(id, query);
-
-    console.log(id);
-    res.status(200).json(workerData);
-  }catch(e){
-    console.log(e);
-    res.status(500).json({ message : e.message })
   }
 }
 
@@ -59,11 +48,7 @@ export const workerCreate = async (req : Request, res : Response) => {
 
   try{
     const worker = await Worker.create({ 
-      id,
-      userId,
-      specialtyId,
-      basePrice,
-      location 
+      id,userId,specialtyId,basePrice,location 
     });
 
     res.status(200).json(worker);
@@ -95,37 +80,23 @@ export const workerUpdate = async (req:Request,res:Response)=>{
   }
 }
 
+export const deleteWorker = (req:Request,res:Response) => {
+  try{
+    const { id } = req.body;
+    let worker = Worker.destroy({where:{id}})
+  }catch(e){
+    res.status(500).json({message:e.message});
+  }
+}
+
+
+//FILTERS
 export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
   const { specialty } = req.body;
-
   try{
-    const workers = await Worker.findAll({
-      attributes:['id','availability','basePrice'],
-      include : [
-        {
-          model : User,
-          attributes: ['fullname','username','profileImage']
-        },
-        {
-          model : Specialty,
-          attributes : ['name'],
-          where : { 
-            name : specialty 
-          }
-        },
-        {
-          model : WorkDetail,
-          attributes : ['state','price','description'],
-          include : [
-            {
-              model : User,
-              attributes : ['fullname','description']
-            }
-          ]
-        }
-      ]
-    }) 
-
+    const worker = new WorkerController();
+    worker.findBySpecialtyName(specialty);
+    const workers = await Worker.findAll(worker.queryBase); 
     res.status(200).json(workers);
   }catch(e){
     console.log(e.message);
@@ -133,10 +104,25 @@ export const getWorkersBySpecialty = async (req:Request,res:Response)=>{
   }
 }
 
-export const deleteWorker = (req:Request,res:Response) => {
+export const getWorkerById = async (req : Request , res : Response) => {
+  const { id } = req.params;
   try{
-    const { id } = req.body;
-    let worker = Worker.destroy({where:{id}})
+    const worker = new WorkerController();
+    const workerData = await Worker.findByPk(id, worker.queryBase);
+    res.status(200).json(workerData);
+  }catch(e){
+    console.log(e);
+    res.status(500).json({ message : e.message })
+  }
+}
+
+export const getWorkerByName = async(req:Request,res:Response) => {
+  try{
+    const { fullname } = req.body;
+    const worker = new WorkerController();
+    worker.findByName(fullname);
+    const workers = Worker.findAll(worker.queryBase);
+    res.status(200).json(workers);
   }catch(e){
     res.status(500).json({message:e.message});
   }
