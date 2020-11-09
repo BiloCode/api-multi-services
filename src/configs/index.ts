@@ -1,6 +1,11 @@
+
+const host = `https://app-multi-services.herokuapp.com`
+
 const routeFiles = {
-  specialty : 'https://app-multi-services.herokuapp.com/images/specialty/',
-  user : 'https://app-multi-services.herokuapp.com/images/user/'
+  specialty : `${host}/images/specialty/`,
+  user : `${host}/images/user/`
 }
 //https://app-multi-services.herokuapp.com
+//http://localhost:5000
+
 export default routeFiles;

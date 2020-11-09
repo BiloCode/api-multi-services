@@ -31,7 +31,7 @@ export const curriculumFilterBySpecialty = async(req:Request,res:Response)=>{
   try {
     const { specialty } = req.body;
     const curriculum = await Curriculum.findAll({
-      attributes:['id','title','content','state','createdAt'],
+      attributes:['id','title','content','state','createdAt','phone','email'],
       include : [
         {
           model : User,
