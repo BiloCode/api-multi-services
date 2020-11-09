@@ -8,7 +8,7 @@ import cors from 'cors';
 import compression from 'compression';
 import * as socket from './socket';
 import path from 'path';
-import { specialtyConfig } from './Multer';
+import { specialtyConfig  ,userConfig } from './Multer';
 
 //Router
 import routerApp from './router/app';
@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
 
 //Routes
-app.use('/app',routerApp);
+app.use('/app',userConfig.single('image'), routerApp);
 app.use('/panel', specialtyConfig.single('image') ,routerPanel);
 
 //Static Routes
