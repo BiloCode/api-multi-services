@@ -19,7 +19,6 @@ import './application/database/mongodb';
 import sequelize from './application/database/mysql';
 import './application/database/mysql/associations';
 
-
 //Configuration
 const app = express();
 const server = http.createServer(app);
@@ -28,10 +27,10 @@ const port = process.env.PORT || 3000;
 app.use(compression());
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended : true }));
+app.use(express.urlencoded({ extended : true , limit : '50mb' }));
 
 //Routes
-app.use('/app',userConfig.single('image'), routerApp);
+app.use('/app', routerApp);
 app.use('/panel', specialtyConfig.single('image') ,routerPanel);
 
 //Static Routes

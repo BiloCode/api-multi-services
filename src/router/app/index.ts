@@ -28,6 +28,7 @@ import getChatRoomsByUserWorker from "../../controllers/Room/getChatRoomsByUserW
 import getWorkStateWithUser from "../../controllers/Worker/app/getWorkStateWithUser";
 import rejectWork from "../../controllers/Worker/app/rejectWork";
 import workCompleted from "../../controllers/Worker/app/workCompleted";
+import updateProfileImage from "../../controllers/User/app/updateProfileImage";
 
 const app = Router();
 
@@ -45,6 +46,7 @@ app.post('/curriculum/add', curriculumCreate);
 app.get('/user/:id', getUserById);
 app.post('/user/add', createNewUser);
 //app.post('/user/list/work', getWorkListByUserId);
+app.post('/user/update/profileImage', updateProfileImage);
 app.post('/user/update/fullname', updateFullName);
 app.post('/user/update/description', updateDescription);
 app.post('/user/join/room', joinRoom);

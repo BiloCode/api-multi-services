@@ -1,6 +1,6 @@
 import User from "../../database/mysql/models/User";
 
-class UpdateProfileImage {
+class UserUpdateProfileImage {
   public exec = async (userId : number,profileImage : string) => {
     try {
       const isUpdated = await User.update({ profileImage }, {
@@ -9,11 +9,11 @@ class UpdateProfileImage {
         }
       });
 
-      return isUpdated;
+      return isUpdated.length > 0;
     }catch(e){
       console.log(e);
     }
   }
 }
 
-export default UpdateProfileImage;
+export default UserUpdateProfileImage;
